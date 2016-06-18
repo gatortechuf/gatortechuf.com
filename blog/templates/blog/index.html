@@ -1,0 +1,5 @@
+<h1>Blog posts</h1>
+
+{% for post in newest_blog_posts %}
+    <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }}</a></li>
+{%  endfor %}
