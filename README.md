@@ -3,6 +3,7 @@ Repository for the new GatorTech website
 
 ## To Run
 Clone the git repo
+
 `pip install -r requirements.txt`
 
 `python manage.py makemigrations`
