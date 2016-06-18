@@ -1,8 +1,9 @@
 from django.views import generic
 from django.utils import timezone
+from django.shortcuts import redirect
 
 from .models import BlogPost
-
+from .forms import CommentForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -16,4 +17,6 @@ class IndexView(generic.ListView):
 
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
+    form = CommentForm
     model = BlogPost
+

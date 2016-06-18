@@ -1,5 +1,15 @@
-<h1>Blog posts</h1>
+{% extends "base.html" %}
 
-{% for post in newest_blog_posts %}
-    <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }}</a></li>
-{%  endfor %}
+{% block title %}
+    GatorTech Blog
+{% endblock %}
+
+{% block content %}
+
+    <h1>Blog posts</h1>
+
+    {% for post in newest_blog_posts %}
+        <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }} by {{ post.blog_author }}</a></li>
+    {%  endfor %}
+
+{% endblock %}
