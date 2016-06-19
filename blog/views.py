@@ -1,6 +1,5 @@
 from django.views import generic
 from django.utils import timezone
-from django.shortcuts import redirect
 
 from .models import BlogPost
 from .forms import CommentForm
