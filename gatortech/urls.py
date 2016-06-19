@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', 'home.views.index'),
+    #url(r'^$', 'home.views.index'),
+    url(r'^$', include('home.urls', namespace='home')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^accounts/profile/', include('profiles.urls', namespace='profiles')),
     url(r'^admin/', admin.site.urls),
 ]

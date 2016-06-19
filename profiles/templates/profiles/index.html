@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if request.user.is_authenticated %}
+        {{ user.get_full_name }} - Profile
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <h1>{{ user.get_full_name }} ({{ user.username }})</h1>
+        <a href="mailto:{{ user.email }}">Email</a>
+    {% else %}
+        <h1>Please Login</h1>
+    {% endif %}
+{% endblock %}

@@ -25,7 +25,7 @@ SECRET_KEY = ')o!29!d4b(7aa7vp9fhb#1kj1k9qvv23)raye@)$m%%m^j@f+b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'blog.apps.BlogConfig',
     'home.apps.HomeConfig',
+    'profiles.apps.ProfilesConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -133,4 +134,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# django-allauth settings
 SITE_ID = 1
+LOGIN_REDIRECT_URL = "/"
