@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}
-    GatorTech Blog
-{% endblock %}
+{% block title %}GatorTech Blog{% endblock %}
 
 {% block content %}
 
     {% if newest_blog_posts %}
         <h1>Blog posts</h1>
         {% for post in newest_blog_posts %}
-            <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }} by {{ post.blog_author }}</a></li>
+            <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
         {%  endfor %}
     {% else %}
         <h1>No posts yet</h1>

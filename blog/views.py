@@ -1,8 +1,8 @@
 from django.views import generic
 from django.utils import timezone
-from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
 
-from .models import BlogPost
+from .models import BlogPost, BlogComment
 from .forms import CommentForm
 
 class IndexView(generic.ListView):
@@ -17,6 +17,17 @@ class IndexView(generic.ListView):
 
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
-    form = CommentForm
+    form_class = CommentForm
     model = BlogPost
 
+class CommentView(generic.FormView):
+    template_name = 'blog/form.html'
+    form_class = CommentForm
+    model = BlogComment
+    # This needs to return the user to the blog post they were on
+    success_url = '/blog/'
+
+    # This needs to actually validate the form data
+    def form_valid(self, form):
+        form.save(commit = True)
+        return super(CommentView, self).form_valid(form)

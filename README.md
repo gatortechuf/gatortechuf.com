@@ -12,6 +12,8 @@ Clone the git repo
 
 `python manage.py createsuperuser`
 
+`python manage.py collectstatic --noinput`
+
 `python manage.py runserver`
 
 Visit http://127.0.0.1:8000
