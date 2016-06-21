@@ -17,17 +17,4 @@ class IndexView(generic.ListView):
 
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
-    form_class = CommentForm
     model = BlogPost
-
-class CommentView(generic.FormView):
-    template_name = 'blog/form.html'
-    form_class = CommentForm
-    model = BlogComment
-    # This needs to return the user to the blog post they were on
-    success_url = '/blog/'
-
-    # This needs to actually validate the form data
-    def form_valid(self, form):
-        form.save(commit = True)
-        return super(CommentView, self).form_valid(form)

@@ -5,7 +5,7 @@
 {% block content %}
 
     {% if newest_blog_posts %}
-        <h1>Blog posts</h1>
+        <h1>Blog posts aaaa</h1>
         {% for post in newest_blog_posts %}
             <li><a href="{% url 'blog:blogpostview' post.id %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
         {%  endfor %}
