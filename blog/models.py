@@ -7,6 +7,7 @@ class BlogPost(models.Model):
     post_date = models.DateTimeField('date posted', auto_now=True)
     blog_author = models.ForeignKey(User)
     blog_content = models.CharField(max_length=10000)
+    slug = models.SlugField(default=None, unique=True, max_length=128)
 
     def __str__(self):
         return self.blog_title

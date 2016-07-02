@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='blog_index'),
-    url(r'^(?P<pk>[0-9]+)/$', views.BlogPostView.as_view(), name='blog_post'),
+    url(r'^(?P<slug>[\w-]+)/$', views.BlogPostView.as_view(), name='blog_post'),
 ]
