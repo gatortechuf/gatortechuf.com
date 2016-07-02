@@ -2,18 +2,22 @@
 {% load markdown_deux_tags %}
 
 {% block title %}
-    GatorTech Events
+    Upcoming Events - GatorTech
 {% endblock %}
 
 {% block content %}
     <div class="row">
-        <div class="col-md-2">
-            <div class="list-group">
-                <a href="{% url 'events:event_index' %}" class="list-group-item active">Upcoming</a>
-                <a href="{% url 'events:event_archive' %}" class="list-group-item">Past Events</a>
-            </div>
+        <div class="col-md-6">
+            <h2>Events</h2>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-6 text-md-right">
+            <a href="{% url 'events:event_index' %}" class="btn btn-primary">Upcoming Events</a>
+            <a href="{% url 'events:event_archive' %}" class="btn btn-primary-outline">Past Events</a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12">
             {% if event_list %}
                 {% for event in event_list %}
                     <div class="card">

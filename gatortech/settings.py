@@ -93,7 +93,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -123,7 +122,7 @@ AUTHENTICATION_BACKENDS = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -141,3 +140,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # django-allauth settings
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.SignupForm'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+# markdown settings
+# should you ever put an import here? probably not
+# the import messes up the secret key for some reason
+# will debug later
+from markdown_deux.conf import settings
+settings.MARKDOWN_DEUX_STYLES = {
+    "default": {
+        "extras": {
+            "html-classes": {"img": "img-fluid"}
+        }
+    }
+}

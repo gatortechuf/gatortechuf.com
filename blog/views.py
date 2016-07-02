@@ -12,7 +12,7 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return BlogPost.objects.filter(
             post_date__lte=timezone.now()
-        ).order_by('-post_date')[:10]
+        ).order_by('-post_date')[:5]
 
 
 class ArchiveView(generic.ListView):
