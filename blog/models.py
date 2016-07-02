@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     blog_title = models.CharField(max_length=200)
     post_date = models.DateTimeField('date posted', auto_now=True)
     blog_author = models.ForeignKey(User)
-    blog_content = models.CharField(max_length=10000)
+    blog_content = models.TextField(max_length=10000)
     slug = models.SlugField(default=None, unique=True, max_length=128)
 
     def __str__(self):

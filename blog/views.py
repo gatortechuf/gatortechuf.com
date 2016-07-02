@@ -15,6 +15,15 @@ class IndexView(generic.ListView):
         ).order_by('-post_date')[:10]
 
 
+class ArchiveView(generic.ListView):
+    template_name = 'blog/archive.html'
+    context_object_name = 'archive_posts'
+    model = BlogPost
+
+    def get_queryset(self):
+        return BlogPost.objects.order_by('-post_date')
+
+
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
     model = BlogPost

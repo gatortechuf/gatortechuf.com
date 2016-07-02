@@ -1,13 +1,23 @@
 {% extends "base.html" %}
+{% load markdown_deux_tags %}
 
 {% block title %}
     {{ blogpost.blog_title }} - GatorTech
 {% endblock %}
 
 {% block content %}
-
-    <h1>{{ blogpost.blog_title }}</h1>
-    <h4>Written by {{ blogpost.blog_author.get_full_name }} on {{ blogpost.post_date }}</h4>
-    <p>{{ blogpost.blog_content }}</p>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'blog:blog_index' %}" class="list-group-item">Current Posts</a>
+                <a href="{% url 'blog:blog_archive' %}" class="list-group-item">Archived Posts</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h1>{{ blogpost.blog_title }}</h1>
+            <h4>Written by {{ blogpost.blog_author.get_full_name }} on {{ blogpost.post_date|date:"l, M j \a\t f a" }}</h4>
+            <p>{{ blogpost.blog_content|markdown }}</p>
+        </div>
+    </div>
 
 {% endblock %}

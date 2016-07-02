@@ -1,16 +1,31 @@
 {% extends "base.html" %}
+{% load markdown_deux_tags %}
 
 {% block title %}GatorTech Blog{% endblock %}
 
 {% block content %}
-
-    {% if newest_blog_posts %}
-        <h1>Blog posts</h1>
-        {% for post in newest_blog_posts %}
-            <li><a href="{% url 'blog:blog_post' post.slug %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
-        {%  endfor %}
-    {% else %}
-        <h1>No posts yet</h1>
-    {% endif %}
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+                <a href="{% url 'blog:blog_index' %}" class="list-group-item active">Current Posts</a>
+                <a href="{% url 'blog:blog_archive' %}" class="list-group-item">Archived Posts</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            {% if newest_blog_posts %}
+                {% for post in newest_blog_posts %}
+                    <div class="card">
+                        <div class="card-block">
+                            <a href="{% url 'blog:blog_post' post.slug %}"><h4 class="card-title">{{ post.blog_title }}</h4></a>
+                            <h6 class="card-subtitle">Posted on {{ post.post_date|date:"D M j f a" }}</h6>
+                            <p class="card-text">{{ post.blog_content|markdown|truncatechars:250 }}</p>
+                        </div>
+                    </div>
+                {%  endfor %}
+            {% else %}
+                <h1>No posts yet</h1>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock %}

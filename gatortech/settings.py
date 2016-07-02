@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     #'allauth.socialaccount.providers.facebook',
+    'pagedown',
+    'markdown_deux'
 ]
 
 MIDDLEWARE_CLASSES = [
