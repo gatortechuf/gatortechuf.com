@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ event.event_title }} - GatorTech
+{% endblock %}
+
+{% block content %}
+    <h2>{{ event.event_title }}</h2>
+    <p>{{ event.event_date }} at {{ event.event_location }}</p>
+    <p>{{ event.event_description }}</p>
+{% endblock %}

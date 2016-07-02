@@ -19,7 +19,8 @@
     <a href="/admin/">Admin Site</a>
 {% endif %}
 <a href="{% url 'home:index' %}">Home</a>
-<a href="{% url 'blog:index' %}">Blog</a>
+<a href="{% url 'blog:blog_index' %}">Blog</a>
+<a href="{% url 'events:event_index' %}">Events</a>
 {% block content %}
 {% endblock %}
 </body>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    GatorTech Events
+{% endblock %}
+
+{% block content %}
+    {% if event_list %}
+        {% for event in event_list %}
+            <a href="{% url 'events:event_detail' event.id %}"><h4>{{ event.event_title }}</h4></a>
+            <p>{{ event.event_description }} -- occurs on {{ event.event_date }} at {{ event.event_location }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No events</p>
+    {% endif %}
+    <a href="{% url 'events:event_archive' %}">Past Events</a>
+{% endblock %}
