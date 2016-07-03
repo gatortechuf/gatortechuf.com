@@ -1,5 +1,4 @@
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
 
 
@@ -22,3 +21,11 @@ class BlogComment(models.Model):
 
     def __str__(self):
         return self.comment_text
+
+
+class SuggestedPost(models.Model):
+    topic_idea = models.TextField(max_length=512, default='None', null=False)
+    topic_author = models.ForeignKey(User)
+
+    def __str__(self):
+        return self.topic_author.get_full_name()

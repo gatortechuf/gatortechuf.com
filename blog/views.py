@@ -1,9 +1,9 @@
 from django.views import generic
 from django.utils import timezone
-from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 from .models import BlogPost, BlogComment
-from .forms import CommentForm
+from .forms import SuggestForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -27,3 +27,17 @@ class ArchiveView(generic.ListView):
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
     model = BlogPost
+
+
+class SuggestView(generic.FormView):
+    template_name = 'blog/suggest.html'
+    form_class = SuggestForm
+
+    def get_success_url(self):
+        return('/')
+
+    def form_valid(self, form):
+        suggested = form.save(commit=False)
+        suggested.topic_author = User.objects.get(id=self.request.user.id)
+        suggested.save()
+        return super(SuggestView, self).form_valid(form)

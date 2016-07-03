@@ -3,7 +3,7 @@ from django.db import models
 
 from pagedown.widgets import AdminPagedownWidget
 
-from .models import BlogPost, BlogComment
+from .models import BlogPost, BlogComment, SuggestedPost
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('blog_title', 'blog_author')
@@ -22,4 +22,5 @@ class BlogAdmin(admin.ModelAdmin):
         obj.save()
 
 admin.site.register(BlogPost, BlogAdmin)
+admin.site.register(SuggestedPost)
 admin.site.register(BlogComment)
