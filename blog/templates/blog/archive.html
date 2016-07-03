@@ -14,6 +14,9 @@
             <a href="{% url 'blog:blog_index' %}" class="btn btn-primary-outline">Latest Posts</a>
             <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary">Archive</a>
             <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
+            {% if perms.blog.add_blogpost %}
+                <a href="{% url 'admin:blog_blogpost_add' %}" class="btn btn-info">Write a post</a>
+            {% endif %}
         </div>
     </div>
     <hr />

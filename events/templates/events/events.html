@@ -13,6 +13,9 @@
         <div class="col-md-6 text-md-right">
             <a href="{% url 'events:event_index' %}" class="btn btn-primary">Upcoming Events</a>
             <a href="{% url 'events:event_archive' %}" class="btn btn-primary-outline">Past Events</a>
+            {% if perms.events.add_event %}
+                <a href="{% url 'admin:events_event_add' %}" class="btn btn-info">Create an event</a>
+            {% endif %}
         </div>
     </div>
     <hr />
