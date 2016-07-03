@@ -1,8 +1,10 @@
 from django.views import generic
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.shortcuts import redirect
+from django.contrib import messages
 
-from .models import BlogPost, BlogComment
+from .models import BlogPost
 from .forms import SuggestForm
 
 class IndexView(generic.ListView):
@@ -34,7 +36,8 @@ class SuggestView(generic.FormView):
     form_class = SuggestForm
 
     def get_success_url(self):
-        return('/')
+        messages.success(self.request, 'Suggestion submitted successfully!')
+        return redirect('blog:blog_suggest')
 
     def form_valid(self, form):
         suggested = form.save(commit=False)

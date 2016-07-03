@@ -20,6 +20,13 @@
     <hr />
     <div class="row">
         <div class="col-xs-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <form action="{{ action }}" method="post">
                 {% csrf_token %}
                 <fieldset class="form-group">

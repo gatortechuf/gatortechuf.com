@@ -24,7 +24,7 @@
                 {% for post in newest_blog_posts %}
                     <div class="card">
                         <div class="card-block">
-                            <a href="{% url 'blog:blog_post' post.slug %}"><h4 class="card-title">{{ post.blog_title }}</h4></a>
+                            <a href="{% url 'blog:blog_post' post.slug %}"><h2 class="card-title">{{ post.blog_title }}</h2></a>
                             <h6 class="card-subtitle">Posted on {{ post.post_date|date:"l, M j \a\t f a" }}</h6>
                             <p class="card-text">{{ post.blog_content|markdown|truncatechars_html:140 }}</p>
                         </div>
