@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'home.apps.HomeConfig',
     'profiles.apps.ProfilesConfig',
+    'resources.apps.ResourcesConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

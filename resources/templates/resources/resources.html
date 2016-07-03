@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Resources - GatorTech
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Resources</h2>
+        </div>
+        <div class="col-md-6 text-md-right">
+            <a href="{% url 'home:index' %}" class="btn btn-primary-outline">Button</a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12">
+            Stuff goes here
+        </div>
+    </div>
+{% endblock %}
