@@ -10,7 +10,7 @@
             <h2>Member Directory</h2>
         </div>
         <div class="col-md-6 text-md-right">
-            Search would go here
+            <a href="{% url 'profiles:profile_edit' request.user.id %}" class="btn btn-primary-outline">Edit Profile</a>
         </div>
     </div>
     <hr />

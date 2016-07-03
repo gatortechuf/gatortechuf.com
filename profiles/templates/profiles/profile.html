@@ -2,7 +2,7 @@
 
 {% block title %}
     {% if request.user.is_authenticated %}
-        {{ user.get_full_name }} - Profile
+        {{ user.get_full_name }} - GatorTech
     {% endif %}
 {% endblock %}
 
@@ -12,7 +12,7 @@
             <h2><a href="{% url 'profiles:profile_list' %}">Member Directory</a></h2>
         </div>
         <div class="col-md-6 text-md-right">
-            Search would go here
+            <a href="{% url 'profiles:profile_edit' request.user.id %}" class="btn btn-primary-outline">Edit Profile</a>
         </div>
     </div>
     <hr />
@@ -22,7 +22,7 @@
                 <h1>{{ user.get_full_name }}</h1>
                 {% if perms.profiles.directory_access %}
                     <p>Email: <a href="mailto:{{ user.email }}">Email</a></p>
-                    <p>Resume: {{ user.userprofile.resume }}</p>
+                    <p>Resume: <a href="/media/{{ user.userprofile.resume }}">Here</a></p>
                     <p>Phone: {{ user.userprofile.phone_number }}</p>
                 {% endif %}
             {% else %}

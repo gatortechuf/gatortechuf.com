@@ -10,11 +10,11 @@ class Recruiter(models.Model):
 
 
 def upload_path(instance, filename):
-    return os.path.join('static', 'resumes', '{}_{}_resume.pdf'.format(instance.user.first_name, instance.user.last_name))
+    return os.path.join('resumes', '{}_{}_resume.pdf'.format(instance.user.first_name, instance.user.last_name))
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='userprofile')
     resume = models.FileField(default=None, upload_to=upload_path, null=True)
     phone_number = models.CharField(default=None, max_length=16, null=True)
 
