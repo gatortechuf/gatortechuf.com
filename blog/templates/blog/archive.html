@@ -1,8 +1,8 @@
-{% extends "base.html" %}
-{% load markdown_deux_tags %}
+
+{% extends 'base.html' %}
 
 {% block title %}
-    {{ blogpost.blog_title }} - GatorTech
+    Blog Archive - GatorTech
 {% endblock %}
 
 {% block content %}
@@ -12,17 +12,19 @@
         </div>
         <div class="col-md-6 text-md-right">
             <a href="{% url 'blog:blog_index' %}" class="btn btn-primary-outline">Latest Posts</a>
-            <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary-outline">Archive</a>
+            <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary">Archive</a>
             <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
         </div>
     </div>
     <hr />
     <div class="row">
         <div class="col-xs-12">
-            <h1>{{ blogpost.blog_title }}</h1>
-            <h4>Written by {{ blogpost.blog_author.get_full_name }} on {{ blogpost.post_date|date:"l, M j \a\t f a" }}</h4>
-            <p>{{ blogpost.blog_content|markdown }}</p>
+            {% for post in archive_posts %}
+                <ul class="list-unstyled">
+                    <li>{{ post.post_date|date:"N j, Y" }}</li>
+                    <li><a href="{% url 'blog:blog_post' post.slug %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
+                </ul>
+            {% endfor %}
         </div>
     </div>
-
 {% endblock %}

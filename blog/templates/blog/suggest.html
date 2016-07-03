@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load markdown_deux_tags %}
+
+{% block title %}GatorTech Blog{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <h2>GatorTech Blog</h2>
+        </div>
+        <div class="col-md-6 text-md-right">
+            <a href="{% url 'blog:blog_index' %}" class="btn btn-primary-outline">Latest Posts</a>
+            <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary-outline">Archive</a>
+            <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary">Suggest a Topic</a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xs-12">
+            <form action="{{ action }}" method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <label for="id_topic_idea">Suggest a Topic</label>
+                    <textarea cols="40" id="id_topic_idea" maxlength="512" name="topic_idea" rows="10" class="form-control" placeholder="Write your idea here"></textarea>
+                </fieldset>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

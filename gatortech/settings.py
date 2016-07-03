@@ -39,12 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'blog.apps.BlogConfig',
+    'events.apps.EventsConfig',
     'home.apps.HomeConfig',
     'profiles.apps.ProfilesConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     #'allauth.socialaccount.providers.facebook',
+    'pagedown',
+    'markdown_deux'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -90,7 +93,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
@@ -120,7 +122,7 @@ AUTHENTICATION_BACKENDS = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -134,7 +136,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # django-allauth settings
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
+ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.SignupForm'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+# markdown settings
+# should you ever put an import here? probably not
+# the import messes up the secret key for some reason
+# will debug later
+from markdown_deux.conf import settings
+settings.MARKDOWN_DEUX_STYLES = {
+    "default": {
+        "extras": {
+            "html-classes": {"img": "img-fluid"}
+        }
+    }
+}
