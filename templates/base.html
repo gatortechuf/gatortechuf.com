@@ -23,6 +23,9 @@
                 <li class="nav-item">
                     <a href="{% url 'events:event_index' %}" class="nav-link">Events</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{% url 'resources:resource_index' %}" class="nav-link">Resources</a>
+                </li>
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a href="{% url 'profiles:profile_list' %}" class="nav-link">Members</a>
