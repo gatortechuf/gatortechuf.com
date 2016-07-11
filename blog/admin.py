@@ -21,5 +21,9 @@ class BlogAdmin(admin.ModelAdmin):
         obj.blog_author = request.user
         obj.save()
 
+
+class SuggestAdmin(admin.ModelAdmin):
+    list_display = ('topic_date', 'topic_author', 'topic_idea')
+
 admin.site.register(BlogPost, BlogAdmin)
-admin.site.register(SuggestedPost)
+admin.site.register(SuggestedPost, SuggestAdmin)

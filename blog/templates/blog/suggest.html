@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load markdown_deux_tags %}
 
 {% block title %}GatorTech Blog{% endblock %}
 
@@ -27,14 +26,18 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            <form action="{{ action }}" method="post">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <label for="id_topic_idea">Suggest a Topic</label>
-                    <textarea cols="40" id="id_topic_idea" maxlength="512" name="topic_idea" rows="10" class="form-control" placeholder="Write your idea here"></textarea>
-                </fieldset>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            {% if user.is_authenticated %}
+                <form action="{{ action }}" method="post">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <label for="id_topic_idea">Suggest a Topic</label>
+                        <textarea cols="40" id="id_topic_idea" maxlength="512" name="topic_idea" rows="10" class="form-control" placeholder="Write your idea here"></textarea>
+                    </fieldset>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            {% else %}
+                <h3>Please log in to suggest a topic</h3>
+            {% endif %}
         </div>
     </div>
 
