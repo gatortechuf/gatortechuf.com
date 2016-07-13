@@ -6,28 +6,30 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-6">
-            <h2>GatorTech Blog</h2>
+    <div class="container content-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>GatorTech Blog</h2>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <a href="{% url 'blog:blog_index' %}" class="btn btn-primary-outline">Latest Posts</a>
+                <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary">Archive</a>
+                <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
+                {% if perms.blog.add_blogpost %}
+                    <a href="{% url 'admin:blog_blogpost_add' %}" class="btn btn-info">Write a Post</a>
+                {% endif %}
+            </div>
         </div>
-        <div class="col-md-6 text-md-right">
-            <a href="{% url 'blog:blog_index' %}" class="btn btn-primary-outline">Latest Posts</a>
-            <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary">Archive</a>
-            <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
-            {% if perms.blog.add_blogpost %}
-                <a href="{% url 'admin:blog_blogpost_add' %}" class="btn btn-info">Write a post</a>
-            {% endif %}
-        </div>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="col-xs-12">
-            {% for post in archive_posts %}
-                <ul class="list-unstyled">
-                    <li>{{ post.post_date|date:"N j, Y" }}</li>
-                    <li><a href="{% url 'blog:blog_post' post.slug %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
-                </ul>
-            {% endfor %}
+        <hr />
+        <div class="row">
+            <div class="col-xs-12">
+                {% for post in archive_posts %}
+                    <ul class="list-unstyled">
+                        <li>{{ post.post_date|date:"N j, Y" }}</li>
+                        <li><a href="{% url 'blog:blog_post' post.slug %}">{{ post.blog_title }} by {{ post.blog_author.get_full_name }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

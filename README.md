@@ -17,3 +17,8 @@ Clone the git repo
 `python manage.py runserver`
 
 Visit http://127.0.0.1:8000
+
+## Important Directories/Files
+### /home/static
+- contains the global CSS files and images
+- edit main.css to override Bootstrap and add new classes

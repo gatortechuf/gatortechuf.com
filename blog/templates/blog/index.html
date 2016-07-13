@@ -4,36 +4,37 @@
 {% block title %}GatorTech Blog{% endblock %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-6">
-            <h2>GatorTech Blog</h2>
+    <div class="container content-container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>GatorTech Blog</h2>
+            </div>
+            <div class="col-md-6 text-md-right">
+                <a href="{% url 'blog:blog_index' %}" class="btn btn-primary">Latest Posts</a>
+                <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary-outline">Archive</a>
+                <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
+                {% if perms.blog.add_blogpost %}
+                    <a href="{% url 'admin:blog_blogpost_add' %}" class="btn btn-info">Write a Post</a>
+                {% endif %}
+            </div>
         </div>
-        <div class="col-md-6 text-md-right">
-            <a href="{% url 'blog:blog_index' %}" class="btn btn-primary">Latest Posts</a>
-            <a href="{% url 'blog:blog_archive' %}" class="btn btn-primary-outline">Archive</a>
-            <a href="{% url 'blog:blog_suggest' %}" class="btn btn-primary-outline">Suggest a Topic</a>
-            {% if perms.blog.add_blogpost %}
-                <a href="{% url 'admin:blog_blogpost_add' %}" class="btn btn-info">Write a post</a>
-            {% endif %}
-        </div>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="col-xs-12">
-            {% if newest_blog_posts %}
-                {% for post in newest_blog_posts %}
-                    <div class="card">
-                        <div class="card-block">
-                            <a href="{% url 'blog:blog_post' post.slug %}"><h2 class="card-title">{{ post.blog_title }}</h2></a>
-                            <h6 class="card-subtitle">Posted on {{ post.post_date|date:"l, M j \a\t f a" }}</h6>
-                            <p class="card-text">{{ post.blog_content|markdown|truncatechars_html:140 }}</p>
+        <hr />
+        <div class="row">
+            <div class="col-xs-12">
+                {% if newest_blog_posts %}
+                    {% for post in newest_blog_posts %}
+                        <div class="card">
+                            <div class="card-block">
+                                <a href="{% url 'blog:blog_post' post.slug %}"><h2 class="card-title">{{ post.blog_title }}</h2></a>
+                                <h6 class="card-subtitle">Posted on {{ post.post_date|date:"l, M j \a\t f a" }}</h6>
+                                <p class="card-text">{{ post.blog_content|markdown|truncatechars_html:140 }}</p>
+                            </div>
                         </div>
-                    </div>
-                {%  endfor %}
-            {% else %}
-                <h1>No posts yet</h1>
-            {% endif %}
+                    {%  endfor %}
+                {% else %}
+                    <h1>No posts yet</h1>
+                {% endif %}
+            </div>
         </div>
     </div>
-
 {% endblock %}
