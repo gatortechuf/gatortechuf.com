@@ -32,5 +32,49 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {% if blogpost.comments.all %}
+                    {% for comment in blogpost.comments.all  %}
+                        <div class="card">
+                            <div class="card-block">
+                                {% if user.is_authenticated %}
+                                    <h4 class="card-title"><a href="{% url 'profiles:profile_index' comment.comment_author.id %}">{{ comment.comment_author }}</a></h4>
+                                {% else %}
+                                    <h4 class="card-title">{{ comment.comment_author }}</h4>
+                                {% endif %}
+                                <h6 class="card-subtitle">on {{ comment.comment_date|date:"l, M j \a\t\ f a" }}</h6>
+                                <p class="card-text">{{ comment.comment_content }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="card">
+                        <div class="card-block">
+                            <h4 class="card-title">No comments yet</h4>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <h4 class="card-title">Post a Comment</h4>
+                            <form action="{% url 'blog:blog_comment' %}" method="post">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <textarea cols="40" id="id_comment_content" maxlength="512" name="comment_content" rows="5" class="form-control" placeholder="Write your comment here"></textarea>
+                                </fieldset>
+                                <input type="hidden" id="id_comment_blog_post" name="comment_blog_post" value="{{ blogpost.id }}" />
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

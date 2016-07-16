@@ -1,11 +1,13 @@
-from django.views import generic
-from django.utils import timezone
-from django.contrib.auth.models import User
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+from django.utils import timezone
+from django.views import generic
 
+from .forms import SuggestForm, CommentForm
 from .models import BlogPost
-from .forms import SuggestForm
+
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -29,6 +31,17 @@ class ArchiveView(generic.ListView):
 class BlogPostView(generic.DetailView):
     template_name = 'blog/post.html'
     model = BlogPost
+
+
+class CommentView(generic.FormView):
+    template_name = 'blog/comment.html'
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        comment = form.save(commit=False)
+        comment.comment_author = User.objects.get(id=self.request.user.id)
+        comment.save()
+        return HttpResponseRedirect(self.request.META.get('HTTP_REFERER'))
 
 
 class SuggestView(generic.FormView):
