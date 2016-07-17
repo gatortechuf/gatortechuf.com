@@ -26,6 +26,7 @@ Visit http://127.0.0.1:8000
 ### /home/static
 - contains the global CSS/JS files and images
 - edit main.css to override Bootstrap and add new classes
+
 ### /templates
 - contains `base.html` template
 - contains account related pages like log in and sign up

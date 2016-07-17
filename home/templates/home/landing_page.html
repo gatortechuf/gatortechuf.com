@@ -13,7 +13,33 @@
         </div>
     </div>
     <div class="container">
-        <h3>Content goes here</h3>
+        <div class="row">
+            <div class="col-xs-12">
+                {% if latest_event %}
+                    <p><a href="{% url 'events:event_detail' latest_event.slug %}">{{ latest_event.event_title }}</a></p>
+                {% else %}
+                    <p>No events</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Content here</p>
+            </div>
+            <div class="col-md-6">
+                <p>Image here</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-push-6">
+                Content here
+            </div>
+            <div class="col-md-6 col-md-pull-6">
+                Image here
+            </div>
+        </div>
     </div>
 {% endblock %}
 
