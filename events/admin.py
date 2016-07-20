@@ -6,7 +6,7 @@ from pagedown.widgets import AdminPagedownWidget
 from .models import Event, EventTag
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('event_title', 'event_location_name')
+    list_display = ('event_title', 'event_location_name', 'event_date')
     search_fields = ('event_title', 'event_location_name', 'event_description', 'event_tag')
     prepopulated_fields = {'slug': ('event_title',)}
     formfield_overrides = {

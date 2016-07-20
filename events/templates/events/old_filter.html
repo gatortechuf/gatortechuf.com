@@ -24,9 +24,6 @@
             <div class="col-md-2">
                 <h5>Filter Meetings</h5>
                 <ul class="nav nav-pills nav-stacked">
-                    <li>
-                        <a class="nav-link" href="{% url 'events:event_archive' %}">Clear Filter</a>
-                    </li>
                     {% for event_tag in event_tags %}
                         <li class="nav-item">
                             {% if event_tag.id == tag_id %}
@@ -36,6 +33,9 @@
                             {% endif %}
                         </li>
                     {% endfor %}
+                    <li>
+                        <a class="nav-link" href="{% url 'events:event_archive' %}">Clear Filter</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-10">
