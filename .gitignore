@@ -54,8 +54,6 @@ coverage.xml
 static/
 media/
 *.sqlite3
-# Might need to remove this next ignore
-*/migrations
 local_settings.py
 
 # Sphinx documentation
