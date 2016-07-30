@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from events.models import Event
-from django.utils.timezone import datetime, timedelta
+from django.utils import timezone
 
 def index(request):
     try:
-        latest_event = Event.objects.filter(event_date__range=[datetime.now(), datetime.today() + timedelta(days=30)])[:1].get()
+        latest_event = Event.objects.filter(event_date__range=[timezone.now(), timezone.now() + timezone.timedelta(days=30)])[:1].get()
     except:
         latest_event = None
     context = { 'latest_event': latest_event }
