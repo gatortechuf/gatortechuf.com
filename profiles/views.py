@@ -18,6 +18,11 @@ class Profile(generic.DetailView):
     template_name = 'profiles/profile.html'
     model = User
 
+    def get_context_data(self, **kwargs):
+        context = super(Profile, self).get_context_data(**kwargs)
+        context['profile_id'] = int(self.kwargs['pk'])
+        return context
+
 @method_decorator(login_required, name='dispatch')
 class EditProfile(generic.UpdateView):
     template_name = 'profiles/edit.html'

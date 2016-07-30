@@ -34,6 +34,10 @@ class UserProfile(models.Model):
     def fullname(self):
         return self.user.get_full_name()
 
+    class Meta:
+        verbose_name = 'Profile'
+        verbose_name_plural = 'Profiles'
+
 
 
 
@@ -41,5 +45,6 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
 
+# This is supposed tp be separate
 post_save.connect(create_profile, sender=User)
 

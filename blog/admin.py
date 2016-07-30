@@ -27,6 +27,7 @@ class CommentAdmin(admin.ModelAdmin):
 
 class SuggestAdmin(admin.ModelAdmin):
     list_display = ('topic_date', 'topic_author', 'topic_idea')
+    readonly_fields = ('topic_author', 'topic_idea')
 
 admin.site.register(BlogPost, BlogAdmin)
 admin.site.register(BlogComment, CommentAdmin)
