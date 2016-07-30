@@ -27,7 +27,7 @@ class BlogComment(models.Model):
 
 
 class SuggestedPost(models.Model):
-    topic_idea = models.TextField(max_length=512, default='None', null=False)
+    topic_idea = models.TextField(max_length=512, null=False)
     topic_author = models.ForeignKey(User)
     topic_date = models.DateTimeField('date suggested', auto_now=True)
 
