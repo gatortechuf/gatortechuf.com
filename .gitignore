@@ -51,6 +51,9 @@ coverage.xml
 
 # Django stuff:
 *.log
+static/
+media/
+*.sqlite3
 local_settings.py
 
 # Sphinx documentation
@@ -69,4 +72,5 @@ target/
 venv/
 ENV/
 
-*.sqlite3
+# IntelliJ
+.idea/

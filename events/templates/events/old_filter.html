@@ -2,7 +2,7 @@
 {% load markdown_deux_tags %}
 
 {% block title %}
-    Upcoming Events - GatorTech
+    Old Events - GatorTech
 {% endblock %}
 
 {% block content %}
@@ -12,8 +12,8 @@
                 <h2>Calendar</h2>
             </div>
             <div class="col-md-6 text-md-right">
-                <a href="{% url 'events:event_index' %}" class="btn btn-primary">Upcoming Events</a>
-                <a href="{% url 'events:event_archive' %}" class="btn btn-primary-outline">Past Events</a>
+                <a href="{% url 'events:event_index' %}" class="btn btn-primary-outline">Upcoming Events</a>
+                <a href="{% url 'events:event_archive' %}" class="btn btn-primary">Past Events</a>
                 {% if perms.events.add_event %}
                     <a href="{% url 'admin:events_event_add' %}" class="btn btn-info">Create an Event</a>
                 {% endif %}
@@ -26,14 +26,21 @@
                 <ul class="nav nav-pills nav-stacked">
                     {% for event_tag in event_tags %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'events:event_filter' event_tag.id %}">{{ event_tag.event_tag }}</a>
+                            {% if event_tag.id == tag_id %}
+                                <a class="nav-link active" href="{% url 'events:archive_event_filter' event_tag.id %}">{{ event_tag.event_tag }}</a>
+                            {% else %}
+                                <a class="nav-link" href="{% url 'events:archive_event_filter' event_tag.id %}">{{ event_tag.event_tag }}</a>
+                            {% endif %}
                         </li>
                     {% endfor %}
+                    <li>
+                        <a class="nav-link" href="{% url 'events:event_archive' %}">Clear Filter</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-10">
-                {% if event_list %}
-                    {% for event in event_list %}
+                {% if filtered_event_list %}
+                    {% for event in filtered_event_list %}
                         <div class="card">
                             <div class="card-block">
                                 <a href="{% url 'events:event_detail' event.slug %}"><h4 class="card-title">{{ event.event_title }}</h4></a>
@@ -41,7 +48,7 @@
                                     {{ event.event_date|date:"D M j f a" }} at <a href="https://www.google.com/maps?q={{ event.event_location_address }}" target="_blank">
                                     {{ event.event_location_name }}
                                 </a>
-                                    | {{ event.event_tag.event_tag }}
+                                    | {{ event.event_tag }}
                                 </h6>
                                 <p class="card-text">{{ event.event_description|markdown|truncatechars:250 }}</p>
                             </div>

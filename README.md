@@ -18,6 +18,10 @@ Clone the git repo
 
 Visit http://127.0.0.1:8000
 
+### Creating groups
+The groups `bloggers` and `recruiters` needs to be manually created. `bloggers` get access to all blog function, `recruiters` get access to `directory_access`.
+
+
 ## Important Directories/Files
 ### /gatortech
 - contains the website config file `settings.py`
@@ -26,6 +30,7 @@ Visit http://127.0.0.1:8000
 ### /home/static
 - contains the global CSS/JS files and images
 - edit main.css to override Bootstrap and add new classes
+
 ### /templates
 - contains `base.html` template
 - contains account related pages like log in and sign up
