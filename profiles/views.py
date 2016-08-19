@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from .forms import ProfileEditForm
 from .models import UserProfile
 
 @method_decorator(login_required, name='dispatch')
@@ -42,4 +41,13 @@ class EditProfile(generic.UpdateView):
 
     def form_valid(self, form):
         return super(EditProfile, self).form_valid(form)
+
+@method_decorator(login_required, name='dispatch')
+class SearchProfile(generic.ListView):
+    template_name = 'profiles/search.html'
+    model = Profile
+    context_object_name = "profiles"
+
+    def get_queryset(self):
+        return UserProfile.objects.filter(user__first_name__search="Ryan")
 

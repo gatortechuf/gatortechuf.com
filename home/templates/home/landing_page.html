@@ -8,7 +8,7 @@
 {% block content %}
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-3">Jumbotron Test</h1>
+            <h1 class="display-3">GatorTech</h1>
             <p class="lead">I bet an image background would look neat here</p>
         </div>
     </div>
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-xs-12">
                 {% if latest_event %}
-                    <p><a href="{% url 'events:event_detail' latest_event.slug %}">{{ latest_event.event_title }}</a></p>
+                    <p>Upcoming Event: <a href="{% url 'events:event_detail' latest_event.slug %}">{{ latest_event.event_title }}</a> on {{ latest_event.event_date }}</p>
                 {% else %}
                     <p>No events</p>
                 {% endif %}
