@@ -49,7 +49,7 @@ ul li {
   padding: 5px 15px;
 }
 .menu .navbar-default .navbar-nav > li > a:hover {
-  color: #f48e5c;
+  color: #00afec;
 }
 .menu .navbar-nav {
   float: none;
@@ -91,7 +91,7 @@ header .social-info li a {
   border-right: 1px solid #dedede;
 }
 header .social-info li a:hover {
-  color: #f48e5c;
+  color: #00afec;
 }
 #banner {
   background-size: cover;
@@ -156,14 +156,14 @@ header .social-info li a:hover {
   background: #fff;
   border: 1px solid #6fbf39;
 }
-#banner .block .download-btn li .btn-windows {
+#banner .block .download-btn li .btn-facebook {
   background: #00afec;
   border: 1px solid transparent;
   -webkit-transition: .2s all;
   -o-transition: .2s all;
   transition: .2s all;
 }
-#banner .block .download-btn li .btn-windows:hover {
+#banner .block .download-btn li .btn-facebook:hover {
   color: #00afec;
   background: #fff;
   border: 1px solid #00afec;
@@ -184,15 +184,15 @@ header .social-info li a:hover {
   color: #fff;
 }
 #service .block:hover h3 {
-  color: #f48e5c;
+  color: #00afec;
 }
 #service .block:hover .icon {
   border: 1px solid #FFFFFF;
-  background: #f48e5c;
+  background: #00afec;
   color: #fff;
-  -webkit-box-shadow: 0 0 0px 2px #f48e5c;
-  -moz-box-shadow: 0 0 0px 2px #f48e5c;
-  box-shadow: 0 0 0px 2px #f48e5c;
+  -webkit-box-shadow: 0 0 0px 2px #00afec;
+  -moz-box-shadow: 0 0 0px 2px #00afec;
+  box-shadow: 0 0 0px 2px #00afec;
 }
 #service .block .icon {
   width: 90px;
@@ -236,11 +236,11 @@ header .social-info li a:hover {
   padding-right: 22px;
 }
 #feature .feature-item .icon i {
-  color: #f48e5c;
+  color: #00afec;
   font-size: 30px;
 }
 #feature .feature-item h4 {
-  color: #f48e5c;
+  color: #00afec;
   margin-bottom: 0;
   font-weight: 300;
   margin-bottom: 8px;
@@ -256,7 +256,7 @@ header .social-info li a:hover {
 }
 #utility {
   background: #f6f6f7;
-  padding: 20px 0 30px 0;
+  padding: 20px 0 0px 0;
 }
 #utility .block h2 {
   padding-top: 70px;
@@ -317,7 +317,7 @@ header .social-info li a:hover {
   display: inline-block;
 }
 #subscribe .btn-signup {
-  background: #77c344;
+  background: #FFA500;
   padding: 10px 20px;
   color: #fff;
   border-radius: 0;
@@ -330,10 +330,10 @@ header .social-info li a:hover {
 }
 #subscribe .btn-signup:hover {
   background: #fff;
-  border: 1px solid #77c344;
+  border: 1px solid #FFA500;
 }
 #subscribe .btn-signup:hover i {
-  color: #77c344;
+  color: #FFA500;
 }
 footer {
   background: #f9f9f9;
@@ -349,4 +349,7 @@ footer p {
   color: #6F6F6F;
   margin-top: 10px;
   margin-bottom: 0;
+}
+.white-text {
+    color: white
 }
