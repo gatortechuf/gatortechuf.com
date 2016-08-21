@@ -221,7 +221,7 @@ header .social-info li a:hover {
   color: #666;
 }
 #feature {
-  padding: 120px 0;
+  padding: 20px 0;
 }
 #feature .title {
   font-weight: 300;
@@ -256,7 +256,7 @@ header .social-info li a:hover {
 }
 #utility {
   background: #f6f6f7;
-  padding: 20px 0 0px 0;
+  padding: 20px 0 0px 55px;
 }
 #utility .block h2 {
   padding-top: 70px;
@@ -352,4 +352,38 @@ footer p {
 }
 .white-text {
     color: white
+}
+#resource {
+  padding: 100px 0 40px;
+}
+#resource .title {
+  font-weight: 300;
+}
+#resource .resource-item {
+  margin-top: 40px;
+}
+#resource .resource-item:first-child {
+  margin-top: 0;
+}
+#resource .resource-item .icon {
+  padding-right: 22px;
+}
+#resource .resource-item .icon i {
+  color: #00afec;
+  font-size: 30px;
+}
+#resource .resource-item h4 {
+  color: #00afec;
+  margin-bottom: 0;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+#resource .resource-item p {
+  color: #9499a2;
+}
+#resource .block {
+  text-align: center;
+}
+#resource .block img {
+  display: inline-block;
 }
