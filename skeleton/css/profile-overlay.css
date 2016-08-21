@@ -1,0 +1,113 @@
+.img-circle {
+    background: url(../images/profile.png);
+    border-radius: 50%;
+}
+
+.blue-grey.darken-1 {
+    background-color: #546e7a !important;
+}
+.card {
+    position: relative;
+    margin: 0.5rem 0 1rem 0;
+    background-color: #fff;
+    transition: box-shadow .25s;
+    border-radius: 2px;
+}
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.blue-grey {
+    background-color: #607d8b !important;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from html
+@media only screen and (min-width: 1200px)
+html {
+    font-size: 15px;
+}
+@media only screen and (min-width: 992px)
+html {
+    font-size: 14.5px;
+}
+@media only screen and (min-width: 0)
+html {
+    font-size: 14px;
+}
+html {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+Pseudo ::before element
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+Pseudo ::after element
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.card .card-action {
+    position: relative;
+    background-color: inherit;
+    border-top: 1px solid rgba(160,160,160,0.2);
+    padding: 20px;
+    z-index: 2;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from html
+@media only screen and (min-width: 1200px)
+html {
+    font-size: 15px;
+}
+@media only screen and (min-width: 992px)
+html {
+    font-size: 14.5px;
+}
+@media only screen and (min-width: 0)
+html {
+    font-size: 14px;
+}
+html {
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+Pseudo ::before element
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+Pseudo ::after element
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.card-padding {
+    padding-left: 10%;
+    padding-right: 10%;
+}
