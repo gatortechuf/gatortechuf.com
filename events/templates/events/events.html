@@ -38,10 +38,7 @@
                             <div class="card-block">
                                 <a href="{% url 'events:event_detail' event.slug %}"><h4 class="card-title">{{ event.event_title }}</h4></a>
                                 <h6 class="card-subtitle">
-                                    {{ event.event_date|date:"D M j f a" }} at <a href="https://www.google.com/maps?q={{ event.event_location_address }}" target="_blank">
-                                    {{ event.event_location_name }}
-                                </a>
-                                    | {{ event.event_tag.event_tag }}
+                                    {{ event.event_date|date:"D M j f a" }} at {{ event.event_location_name }}
                                 </h6>
                                 <p class="card-text">{{ event.event_description|markdown|truncatechars:250 }}</p>
                             </div>

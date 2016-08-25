@@ -13,8 +13,8 @@ class EventAdmin(admin.ModelAdmin):
         models.TextField: {'widget': AdminPagedownWidget}
     }
     fieldsets = [
-        ('Title and Type', {'fields': ('event_title', 'slug', 'event_tag')}),
-        ('Location and Time', {'fields': ('event_location_name', 'event_location_address', 'event_date')}),
+        ('Title and Type', {'fields': ('event_title', 'slug')}),
+        ('Location and Time', {'fields': ('event_location_name', 'event_date')}),
         ('Description', {'fields': [('event_description')]})
     ]
 
