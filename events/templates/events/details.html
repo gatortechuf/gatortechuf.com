@@ -27,6 +27,7 @@
                     {{ event.event_date|date:"D M j f a" }} at {{ event.event_location_name }}
                 </a>
                 </h5>
+                <p><a href="{{ event.event_facebook_url }}">RSVP on Facebook</a></p>
                 <p>{{ event.event_description|markdown }}</p>
             </div>
         </div>

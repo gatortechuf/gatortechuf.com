@@ -9,7 +9,7 @@ from events.models import Event
 class Command(BaseCommand):
     help = 'Updates website events from Facebook'
 
-    def facebook_event_url(id):
+    def facebook_event_url(self, id):
         return 'https://www.facebook.com/events/' + str(id)
 
     def handle(self, *args, **options):
@@ -27,7 +27,13 @@ class Command(BaseCommand):
                 description = 'No Description'
 
             try:
-                event, created = Event.objects.update_or_create(id=fb_event['id'], slug=slugify(fb_event['name']), event_title=fb_event['name'], event_description=description, event_location_name=location, event_date=fb_event['start_time'])
+                event, created = Event.objects.update_or_create(id=fb_event['id'],
+                                                                slug=slugify(fb_event['name']),
+                                                                event_title=fb_event['name'],
+                                                                event_description=description,
+                                                                event_location_name=location,
+                                                                event_date=fb_event['start_time'],
+                                                                event_facebook_url=self.facebook_event_url(fb_event['id']))
             except:
                 raise CommandError('Missing key')
             event.opened = False

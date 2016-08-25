@@ -14,6 +14,7 @@ class Event(models.Model):
     event_title = models.CharField('Title', max_length=128)
     event_description = models.TextField('Description', max_length=768)
     event_location_name = models.CharField('Location Name', max_length=256, default='Heavener Hall 250')
+    event_facebook_url = models.CharField('Facebook Event URL', max_length=256)
     #event_location_address = models.CharField('Address', max_length=256, default='1325 W University Ave, Gainesville, FL 32601')
     event_date = models.DateTimeField('Date', auto_now=False)
     #event_tag = models.ForeignKey(EventTag, default=1, verbose_name='Tag')
