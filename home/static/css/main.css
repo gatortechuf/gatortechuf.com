@@ -116,9 +116,9 @@ header .social-info li a:hover {
 #banner .block p {
     margin-top: 19px;
   font-size: 23px;
-    font-family: Verdana;
+    font-family: source sans pro;
     font-style: normal;
-  color: #999;
+  color: white;
   font-weight: 300;
 }
 #banner .block .download-btn li {
@@ -421,5 +421,5 @@ white-text {
 
 .hero-image {
     background-image: url("../images/hero.jpg");
-    background:rgba(0,0,0, 0.3);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
 }

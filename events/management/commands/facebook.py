@@ -38,3 +38,5 @@ class Command(BaseCommand):
                 raise CommandError('Missing key')
             event.opened = False
             event.save()
+
+        self.stdout.write(self.style.SUCCESS('Updated Facebook Events'))

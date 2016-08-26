@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'blog.apps.BlogConfig',
     'events.apps.EventsConfig',
     'home.apps.HomeConfig',
-    'profiles.apps.ProfilesConfig',
     'resources.apps.ResourcesConfig',
     'allauth',
     'allauth.account',
@@ -144,7 +142,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # django-allauth settings
 SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
-ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.SignupForm'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
