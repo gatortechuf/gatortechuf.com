@@ -11,7 +11,7 @@ class EventsView(generic.ListView):
     def get_queryset(self):
         return Event.objects.filter(
             event_date__gte=timezone.now()
-        ).order_by('event_date')
+        ).order_by('-event_date')
 
     def get_context_data(self, **kwargs):
         context = super(EventsView, self).get_context_data(**kwargs)
@@ -47,7 +47,7 @@ class OldEventsView(generic.ListView):
     def get_queryset(self):
         return Event.objects.filter(
             event_date__lt=timezone.now()
-        ).order_by('event_date')
+        ).order_by('-event_date')
 
     def get_context_data(self, **kwargs):
         context = super(OldEventsView, self).get_context_data(**kwargs)
