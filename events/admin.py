@@ -3,7 +3,7 @@ from django.db import models
 
 from pagedown.widgets import AdminPagedownWidget
 
-from .models import Event, EventTag
+from .models import Event
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('event_title', 'event_location_name', 'event_date')
@@ -20,4 +20,3 @@ class EventAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Event, EventAdmin)
-admin.site.register(EventTag)
