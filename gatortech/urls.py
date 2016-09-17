@@ -8,6 +8,5 @@ urlpatterns = [
     url(r'^', include('home.urls', namespace='home')),
     url(r'^calendar/', include('events.urls', namespace='events')),
     url(r'^resources/', include('resources.urls', namespace='resources')),
-    url(r'^accounts/', include('allauth.urls')),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

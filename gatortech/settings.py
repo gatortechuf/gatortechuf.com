@@ -20,10 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')o!29!d4b(7aa7vp9fhb#1kj1k9qvv23)raye@)$m%%m^j@f+b'
+#SECRET_KEY = ')o!29!d4b(7aa7vp9fhb#1kj1k9qvv23)raye@)$m%%m^j@f+b'
+SECRET_KEY = os.getenv('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -41,10 +43,6 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    #'allauth.socialaccount.providers.facebook',
     'pagedown',
     'markdown_deux'
 ]
@@ -113,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
 }
 
 
@@ -138,13 +135,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# django-allauth settings
-SITE_ID = 1
-LOGIN_REDIRECT_URL = "/"
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # markdown settings
 # should you ever put an import here? probably not
