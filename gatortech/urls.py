@@ -9,4 +9,4 @@ urlpatterns = [
     url(r'^calendar/', include('events.urls', namespace='events')),
     url(r'^resources/', include('resources.urls', namespace='resources')),
     url(r'^admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,5 +1,5 @@
+import os
 import requests
-from .config import app_id, app_secret
 from django.core.management.base import BaseCommand, CommandError
 from django.utils.text import slugify
 from events.models import Event
@@ -13,7 +13,7 @@ class Command(BaseCommand):
         return 'https://www.facebook.com/events/' + str(id)
 
     def handle(self, *args, **options):
-        events_json = requests.get('https://graph.facebook.com/v2.7/gatortechuf/events?limit=999&access_token=' + app_id + '|' + app_secret).json()
+        events_json = requests.get('https://graph.facebook.com/v2.7/gatortechuf/events?limit=999&access_token=' + os.getenv('FB_ID') + '|' + os.getenv('FB_SECRET')).json()
 
         for fb_event in events_json['data']:
             if 'place' in fb_event and 'name' in fb_event['place']:
