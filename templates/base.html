@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 
 <html>
 <head>
@@ -38,10 +38,10 @@
                             </div>
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="{% url 'home:index' %}"">Home</a></li>
+                                    <li><a href="{% url 'home:index' %}">Home</a></li>
                                     <li><a href="https://medium.com/gatortech" target="_blank">Blog</a></li>
                                     <li><a href="{% url 'events:event_index' %}">Events</a></li>
-                                    <li><a href="{% url 'resources:resource_index' %}"">Resources</a></li>
+                                    <li><a href="{% url 'resources:resource_index' %}">Resources</a></li>
                                 </ul>
                             </div>
                         </div>
