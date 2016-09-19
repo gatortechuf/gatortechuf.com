@@ -42,6 +42,9 @@
                                     <li><a href="https://medium.com/gatortech" target="_blank">Blog</a></li>
                                     <li><a href="{% url 'events:event_index' %}">Events</a></li>
                                     <li><a href="{% url 'resources:resource_index' %}">Resources</a></li>
+                                    {% if user.is_authenticated %}
+                                        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
