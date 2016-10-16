@@ -4,8 +4,6 @@ from django.core.management.base import BaseCommand, CommandError
 from django.utils.text import slugify
 from events.models import Event
 
-
-
 class Command(BaseCommand):
     help = 'Updates website events from Facebook'
 
