@@ -422,5 +422,9 @@ white-text {
 .hero-image {
   background-image: url("../images/hero.jpg");
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+}
+
+.hero-text {
   color: #ffffff;
+  font-family:source sans pro
 }
