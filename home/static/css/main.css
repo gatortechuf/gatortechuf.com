@@ -418,3 +418,8 @@ white-text {
   background: #fff;
   border: 1px solid #fff;
 }
+
+.hero-image {
+  background-image: url("../images/hero.jpg");
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+}
