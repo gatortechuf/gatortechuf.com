@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
+    'recruiters.apps.RecruitersConfig',
     'pagedown',
     'markdown_deux'
 ]

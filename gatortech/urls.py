@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^', include('home.urls', namespace='home')),
     url(r'^calendar/', include('events.urls', namespace='events')),
     url(r'^resources/', include('resources.urls', namespace='resources')),
+    url(r'^recruiters/', include('recruiters.urls', namespace='recruiters')),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
