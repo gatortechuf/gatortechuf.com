@@ -5,7 +5,7 @@ class ResourceTag(models.Model):
 
 
 class Resource(models.Model):
-    resource_url = models.CharField(max_length=256)
-    resource_name = models.CharField(max_length=256)
-    resource_image = models.FileField(max_length=256)
-    resource_tag = models.ForeignKey(ResourceTag)
+    resource_url = models.CharField(max_length=256, default=None, blank=True, null=True)
+    resource_name = models.CharField(max_length=256, default=None, blank=True, null=True)
+    resource_image = models.FileField(max_length=256, default=None, blank=True, null=True)
+    resource_tag = models.ForeignKey(ResourceTag, default=None, blank=True, null=True)
