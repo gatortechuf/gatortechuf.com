@@ -50,8 +50,6 @@ class UpdateEvents(TemplateView):
 
 def update_handler(request):
     try:
-        #loaded = urllib.parse.unquote_plus(request.body.decode("utf-8"))
-        #loaded = json.loads(urllib.parse.unquote_plus(request.body.decode("utf-8")))
         loaded = json.loads(request.POST['events'])
     except Exception as e:
         loaded = str(e)
