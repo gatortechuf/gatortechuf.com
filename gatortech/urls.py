@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^calendar/', include('events.urls', namespace='events')),
     url(r'^resources/', include('resources.urls', namespace='resources')),
     url(r'^recruiters/', include('recruiters.urls', namespace='recruiters')),
+    url(r'^membership/', include('membership.urls', namespace='membership')),
     url(r'^admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

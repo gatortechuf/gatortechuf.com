@@ -23,7 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG')
+#DEBUG = os.getenv('DJANGO_DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
     'recruiters.apps.RecruitersConfig',
+    'membership.apps.MembershipConfig',
     'pagedown',
     'markdown_deux'
 ]
@@ -127,6 +129,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # markdown settings
 # should you ever put an import here? probably not

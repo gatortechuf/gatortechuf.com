@@ -48,7 +48,8 @@
                                 <ul class="nav navbar-nav">
                                     <li><a href="{% url 'home:index' %}">Home</a></li>
                                     <li><a href="https://medium.com/gatortech" target="_blank">Blog</a></li>
-                                    <li><a href="{% url 'events:event_index' %}">Events</a></li>
+                                    <li><a href="{% url 'events:event_index' %}">Calendar</a></li>
+                                    <li><a href="{% url 'membership:membership_index' %}">Membership</a></li>
                                     <li><a href="{% url 'resources:resource_index' %}">Resources</a></li>
                                     <li><a href="{% url 'recruiters:recruiters_index' %}">Recruiters</a></li>
                                     {% if user.is_authenticated %}

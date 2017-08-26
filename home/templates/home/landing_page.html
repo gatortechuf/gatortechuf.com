@@ -14,7 +14,7 @@
                     <div class="block">
                         <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
                         <p>
-                            We meet every Tuesday in Heavener 150 from 6:30-7:30 PM to learn about tech.
+                            We meet every Tuesday in Heavener 150 from 6:30-8:00 PM to learn about tech.
                             <br>
                             Come join us!
                         </p>
@@ -28,7 +28,7 @@
                                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdptv4JsEsyuMxxngayZaTry-TFBzJ36WZBmGjd23KJFNv5VQ/viewform" class="btn btn-default btn-apple"><i class="fa fa-paper-plane"></i>Students, connect with us!</a>
                                 </li>
                                 <li>
-                                    <a href="mailto:robertdcamp@ufl.edu?Subject=Recruitment%20with%20GatorTech" class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Recruiters, email us!</a>
+                                    <a href="mailto:nellywilson@ufl.edu?Subject=Recruitment%20with%20GatorTech" class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Recruiters, email us!</a>
                                 </li>
                                 <li>
                                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_P5e7dgGNWFHt386TFam4lz2qFcq2ddNUkWgKRtQBlUphow/viewform" class="btn btn-default btn-apple"><i class="fa fa-usd"></i>Order shirts here!</a>
@@ -89,39 +89,19 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 wow fadeInRight">
                 <h2 class="title">Modules for this semester</h2>
-                <div class="feature-item">
-                    <div class="media">
-                        <div class="pull-left icon" href="#">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Mobile Apps</h4>
-                            <p>The mobile app field may seem stagnate, but behind the scenes new technologies are constantly popping up creating a better experience for users. Want to keep up with all these changes? Come out to our mobile apps mod! <strong>This module begins on January 13st and ends on Febuary 21st.</strong></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="media">
-                        <div class="pull-left icon" href="#">
-                            <i class="fa fa-laptop"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Cloud Computing</h4>
-                            <p>Cloud Computing is still one of the strongest movements in technology today and continues to grow in importance. Come learn about what the cloud really is and learn how businesses are taking advantage of all the new tools available! <strong>This module begins on March 14th and ends on the 24th.</strong></p>
+                {% for module in modules %}
+                    <div class="feature-item">
+                        <div class="media">
+                            <div class="pull-left icon" href="#">
+                                <i class="{{ module.module_icon }}"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ module.module_title }}</h4>
+                                <p>{{ module.module_description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="feature-item">
-                    <div class="media">
-                        <div class="pull-left icon" href="#">
-                            <i class="fa fa-recycle"></i>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Information Security</h4>
-                            <p>We all hand out our personal information without second thought, but how are companies protecting the huge amounts of data received? We'll teach you how companies are (or aren't) keeping your data safe. <strong>This module begins on April 11th and ends on the 18th.</strong></p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="col-md-6 col-sm-6 wow fadeInLeft">
                 <div class="block">
