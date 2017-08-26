@@ -31,3 +31,4 @@ Visit http://127.0.0.1:8000
 ### /templates
 - contains `base.html` template
 - contains account related pages like log in and sign up
+yoyoyoyoyoyo
