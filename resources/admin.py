@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Resource, ResourceTag
+from .models import Meeting, Workshop
 
-admin.site.register(Resource)
-admin.site.register(ResourceTag)
+admin.site.register(Meeting)
+admin.site.register(Workshop)
