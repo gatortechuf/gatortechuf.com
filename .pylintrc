@@ -1,2 +1,5 @@
 [DESIGN]
 max-parents=15
+
+[FORMAT]
+max-line-length=120

@@ -9,4 +9,3 @@ class ResourceView(generic.ListView):
 
 def workshop(request):
     return render(request, 'resources/workshop.html')
-
