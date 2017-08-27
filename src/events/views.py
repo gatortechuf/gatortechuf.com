@@ -1,12 +1,10 @@
 import json
-import urllib.parse
 from django.views import generic
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.utils import timezone
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
 
 from django.utils.decorators import method_decorator
 
@@ -51,8 +49,8 @@ class UpdateEvents(TemplateView):
 def update_handler(request):
     try:
         loaded = json.loads(request.POST['events'])
-    except Exception as e:
-        loaded = str(e)
+    except Exception as exception:
+        loaded = str(exception)
 
     for fb_event in loaded['events']:
         if 'place' in fb_event and 'name' in fb_event['place']:
@@ -66,12 +64,12 @@ def update_handler(request):
             description = 'No Description'
 
         event = Event.objects.update_or_create(id=fb_event['id'],
-                                                        slug=slugify(fb_event['name']),
-                                                        event_title=fb_event['name'],
-                                                        event_description=description,
-                                                        event_location_name=location,
-                                                        event_date=fb_event['start_time'],
-                                                        event_facebook_url='https://www.facebook.com/events/' + str(fb_event['id']))
+                                               slug=slugify(fb_event['name']),
+                                               event_title=fb_event['name'],
+                                               event_description=description,
+                                               event_location_name=location,
+                                               event_date=fb_event['start_time'],
+                                               event_facebook_url='https://www.facebook.com/events/' + str(fb_event['id']))
 
 
     return HttpResponse('done')
