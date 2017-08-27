@@ -1,8 +1,12 @@
-import os
+"""
+Membership page model, which contains the executive board and their coordinators
+"""
 from django.db import models
-from django.conf import settings
 
 class Leader(models.Model):
+    """
+    Executive board member and their name, photo, and biography
+    """
     leader_title = models.CharField('Leadership Title', max_length=128)
     leader_image = models.ImageField(blank=True, upload_to='membership')
     leader_name = models.CharField('Name', max_length=256)
@@ -17,6 +21,9 @@ class Leader(models.Model):
 
 
 class Coordinator(models.Model):
+    """
+    Coordinator and their name, photo, and biography
+    """
     coordinator_title = models.CharField('Coordinator Title', max_length=128)
     coordinator_name = models.CharField('Name', max_length=256)
     coordinator_image = models.ImageField(blank=True, upload_to='membership')

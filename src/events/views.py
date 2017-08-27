@@ -69,7 +69,7 @@ def update_handler(request):
                                                event_description=description,
                                                event_location_name=location,
                                                event_date=fb_event['start_time'],
-                                               event_facebook_url='https://www.facebook.com/events/' + str(fb_event['id']))
-
+                                               event_facebook_url='https://www.facebook.com/events/'
+                                               + str(fb_event['id']))
 
     return HttpResponse('done')
