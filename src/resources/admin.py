@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import Meeting, Workshop
+from .models import Resource
 
-admin.site.register(Meeting)
-admin.site.register(Workshop)
+admin.site.register(Resource)

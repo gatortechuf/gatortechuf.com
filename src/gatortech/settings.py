@@ -86,8 +86,12 @@ WSGI_APPLICATION = 'gatortech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gatortech',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('POSTGRESS_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
