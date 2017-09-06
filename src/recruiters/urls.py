@@ -2,5 +2,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='recruiters_index'),
+    url(r'^$', views.RecruiterView.as_view(), name='recruiters_index'),
 ]

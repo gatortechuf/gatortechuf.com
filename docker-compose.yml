@@ -16,5 +16,9 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "8000:8000"
+    volumes:
+      - django-media:/usr/src/app/media
     depends_on:
       - db
+volumes:
+  django-media:
