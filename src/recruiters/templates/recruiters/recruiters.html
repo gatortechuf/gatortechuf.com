@@ -40,7 +40,6 @@
                         <div class="icon">
                            <i class="fa fa-circle-o"></i>
                         </div>
-
                         <h3>Supporter Level - $75</h3><br>
                         <p>Logo on Website</p>
                     </div>
@@ -68,6 +67,34 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</section>
+<section id="logos">
+    <div class="container">
+        <div class="service-wrapper">
+            {% for logo in logos %}
+                {% if forloop.first or forloop.counter0|divisibleby:2 %}
+                    <div class="row">
+                {% endif %}
+                {% if forloop.last and forloop.counter0|divisibleby:2 %}
+                    <div class="thumbnail col-md-12">
+                {% else %}
+                    <div class="thumbnail col-md-6">
+                {% endif %}
+                    <span class="text-center">
+                        <a href="{{ logo.url_name }}">
+                        <img src="/media/{{ logo.picture_name }}" class="img-responsive" style="margin: auto;">
+                        <h3>{{ logo.logo_name }}</h3>
+                        </a>
+                    </span>
+                    </div>
+                {% if forloop.last or forloop.counter|divisibleby:2 %}
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </section>
