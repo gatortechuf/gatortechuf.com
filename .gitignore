@@ -74,3 +74,5 @@ ENV/
 
 # IntelliJ
 .idea/
+
+.DS_STORE
