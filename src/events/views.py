@@ -76,7 +76,10 @@ def update_handler(request):
         else:
             description = 'No Description'
 
-        event = Event.objects.update_or_create(id=fb_event['id'],
+        # Truncate the FB ID to fit in a postgres serial
+        truncated_id = fb_event['id'] % 10000000
+
+        event = Event.objects.update_or_create(id=truncated_id,
                                                slug=slugify(fb_event['name']),
                                                event_title=fb_event['name'],
                                                event_description=description,
