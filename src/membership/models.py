@@ -16,6 +16,7 @@ class Leader(models.Model):
         return self.leader_name
 
     class Meta:
+        """ Meta Class for admin interface names """
         verbose_name = 'Leader'
         verbose_name_plural = 'Leaders'
 
@@ -34,5 +35,6 @@ class Coordinator(models.Model):
         return self.coordinator_name
 
     class Meta:
+        """ Meta Class for admin interface names """
         verbose_name = 'Coordinator'
         verbose_name_plural = 'Coordinators'

@@ -3,3 +3,5 @@ max-parents=15
 
 [FORMAT]
 max-line-length=120
+
+ignore=tests.py, urls.py, migrations

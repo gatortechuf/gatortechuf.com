@@ -143,9 +143,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # will debug later
 from markdown_deux.conf import settings
 settings.MARKDOWN_DEUX_STYLES = {
-    "default": {
-        "extras": {
-            "html-classes": {"img": "img-fluid"}
+    'default': {
+        'extras': {
+            'html-classes': {'img': 'img-fluid'}
         }
     }
 }

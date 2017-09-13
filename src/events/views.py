@@ -1,3 +1,6 @@
+"""
+Events Views
+"""
 import json
 from django.views import generic
 from django.http import HttpResponse
@@ -11,6 +14,9 @@ from django.utils.decorators import method_decorator
 from .models import Event
 
 class EventsView(generic.ListView):
+    """
+    Events Index
+    """
     template_name = 'events/events.html'
     model = Event
     context_object_name = 'event_list'
@@ -26,6 +32,9 @@ class EventsView(generic.ListView):
 
 
 class OldEventsView(generic.ListView):
+    """
+    Past Events
+    """
     template_name = 'events/old_events.html'
     model = Event
     context_object_name = 'old_event_list'
@@ -40,6 +49,9 @@ class OldEventsView(generic.ListView):
         return context
 
 class UpdateEvents(TemplateView):
+    """
+    Runs the FB JS sdk to update events
+    """
     template_name = 'events/update.html'
 
     @method_decorator(login_required)
@@ -47,6 +59,7 @@ class UpdateEvents(TemplateView):
         return super(UpdateEvents, self).dispatch(*args, **kwargs)
 
 def update_handler(request):
+    """ Parses FB Events """
     try:
         loaded = json.loads(request.POST['events'])
     except Exception as exception:
