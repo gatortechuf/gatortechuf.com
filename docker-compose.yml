@@ -18,10 +18,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - django-media:/usr/src/app/media
-      - django-static:/usr/src/app/static
+      - ~/nginx/media:/usr/src/app/media
+      - ~/nginx/static:/usr/src/app/static
     depends_on:
       - db
-volumes:
-  django-media:
-  django-static:
