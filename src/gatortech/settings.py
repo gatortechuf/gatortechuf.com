@@ -23,8 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('DJANGO_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = os.getenv('DJANGO_DEBUG')
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG', False)
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -143,9 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # will debug later
 from markdown_deux.conf import settings
 settings.MARKDOWN_DEUX_STYLES = {
-    "default": {
-        "extras": {
-            "html-classes": {"img": "img-fluid"}
+    'default': {
+        'extras': {
+            'html-classes': {'img': 'img-fluid'}
         }
     }
 }

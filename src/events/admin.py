@@ -1,3 +1,6 @@
+"""
+Events Admin
+"""
 from django.contrib import admin
 from django.db import models
 
@@ -6,6 +9,9 @@ from pagedown.widgets import AdminPagedownWidget
 from .models import Event
 
 class EventAdmin(admin.ModelAdmin):
+    """
+    Events Admin
+    """
     list_display = ('event_title', 'event_location_name', 'event_date')
     search_fields = ('event_title', 'event_location_name', 'event_description', 'event_tag')
     prepopulated_fields = {'slug': ('event_title',)}
