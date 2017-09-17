@@ -79,6 +79,11 @@ def update_handler(request):
         # Truncate the FB ID to fit in a postgres serial
         truncated_id = fb_event['id'] % 10000000
 
+        # Check if the slug exists
+        slug = slugify(fb_event['name'])
+        if Event.objects.filter(slug=slug).exists():
+            slug = truncated_id
+
         event = Event.objects.update_or_create(id=truncated_id,
                                                slug=slugify(fb_event['name']),
                                                event_title=fb_event['name'],
