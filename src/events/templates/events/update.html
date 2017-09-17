@@ -24,12 +24,11 @@
 
                 FB.login(function(response) {
                     if (response.status === 'connected') {
-                        FB.api('1756147154650085/events?limit=999', function(response) {
+                        FB.api('gatortechuf/events?limit=999', function(response) {
                             $.ajax({
                                 url: "{% url 'events:event_updater' %}",
                                 type: "POST",
                                 dataType: "text",
-                                //contentType: "application/json; charset=utf-8",
                                 data: {
                                     csrfmiddlewaretoken: '{{ csrf_token }}',
                                     events: JSON.stringify({events: response.data})
