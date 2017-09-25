@@ -42,67 +42,72 @@
     </div>
 </section>
 {% for leader in leader_list %}
-<section id="{{ leader.id }}">
-    <hr>
-    {% if not leader.leader_title|lower == "president" %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>{{ leader.leader_title }}</h3>
+    {% if leader.leader_title|lower == "president" %}
+        <section id="{{ leader.id }}">
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>{{ leader.leader_title }}</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    {% if leader.leader_image %}
-                    <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin-left: 0;">
-                    {% else %}
-                        <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin-left: 0;">
-                    {% endif %}
-                    <h2>{{ leader.leader_name }}</h2>
-                </div>
-                <div class="col-md-4">
-                    <p>{{ leader.leadership_bio|linebreaks }}</p>
-                </div>
-                <div class="col-md-6">
-                    {% for coordinator in leader.coordinator_set.all %}
-                    <div class="col-md-6">
-                        {% if coordinator.coordinator_image %}
-                            <img src="/media/{{ coordinator.coordinator_image }}" class="img-responsive" style="margin-left: 0;">
+                <div class="row">
+                    <div class="col-md-4">
+                        {% if leader.leader_image %}
+                            <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin-left: 0;">
                         {% else %}
                             <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin-left: 0;">
                         {% endif %}
-                        <h5>{{ coordinator.coordinator_name }}</h5>
-                        <p>{{ coordinator.coordinator_title }}</p>
-                        <p>{{ coordinator.coordinator_bio|linebreaks }}</p>
+                        <h2>{{ leader.leader_name }}</h2>
                     </div>
-                    {% endfor %}
+                    <div class="col-md-8">
+                        <p>{{ leader.leadership_bio|linebreaks }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% else %}
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>{{ leader.leader_title }}</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    {% if leader.leader_image %}
-                        <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin-left: 0;">
-                    {% else %}
-                        <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin-left: 0;">
-                    {% endif %}
-                    <h2>{{ leader.leader_name }}</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>{{ leader.leadership_bio|linebreaks }}</p>
-                </div>
-            </div>
-        </div>
         </div>
     {% endif %}
-</section>
+{% endfor %}
+{% for leader in leader_list %}
+    <section id="{{ leader.id }}">
+        <hr>
+            {% if not leader.leader_title|lower == "president" %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>{{ leader.leader_title }}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            {% if leader.leader_image %}
+                            <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin-left: 0;">
+                            {% else %}
+                                <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin-left: 0;">
+                            {% endif %}
+                            <h2>{{ leader.leader_name }}</h2>
+                        </div>
+                        <div class="col-md-4">
+                            <p>{{ leader.leadership_bio|linebreaks }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            {% for coordinator in leader.coordinator_set.all %}
+                            <div class="col-md-6">
+                                {% if coordinator.coordinator_image %}
+                                    <img src="/media/{{ coordinator.coordinator_image }}" class="img-responsive" style="margin-left: 0;">
+                                {% else %}
+                                    <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin-left: 0;">
+                                {% endif %}
+                                <h5>{{ coordinator.coordinator_name }}</h5>
+                                <p>{{ coordinator.coordinator_title }}</p>
+                                <p>{{ coordinator.coordinator_bio|linebreaks }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+        {% endif %}
+    </section>
 {% endfor %}
 {% endblock %}
 {% comment %}
