@@ -18,34 +18,10 @@
     <hr />
     <div class="container">
         <div class="row">
-            <div class="col-md-12 wow fadeInRight">
-                {% if event_list %}
-                    {% for event in event_list %}
-                        <div>
-                            <div>
-                                <a href="{{ event.event_facebook_url }}" target="_blank"><h4>{{ event.event_title }}</h4></a>
-                                <h6>
-                                    {{ event.event_date|date:"D M j f a" }} at {{ event.event_location_name }}
-                                </h6>
-                                <p>{{ event.event_description|markdown|truncatechars:250 }}</p>
-                            </div>
-                        </div>
-                        <hr />
-                    {% endfor %}
-                {% else %}
-                    <p>No upcoming events. Check back later!</p>
-                {% endif %}
-            </div>
+            <div class="col-md-12 text-center wow fadeInRight">
+                    <iframe src={{"https://calendar.google.com/calendar/embed?src="|add:calendar.calendar_id|add:"&ctz=America/New_York"}} style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>  
         </div>
-        <div class="row">
-            <div class="col-md-12 wow fadeInUp">
-                <a href="{% url 'events:event_archive' %}">See our previous events</a>
-                {% if user.is_authenticated %}
-                    <br>
-                    <a href="{% url 'events:event_update' %}">Update events</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+    </div>"
 </section>
 {% endblock %}
