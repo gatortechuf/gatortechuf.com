@@ -11,5 +11,5 @@ COPY . .
 
 CMD python manage.py collectstatic --noinput && \
     python manage.py makemigrations && \
-    python manage.py migrate --fake-initial && \
+    python manage.py migrate && \
     gunicorn gatortech.wsgi -b 0.0.0.0:8000
