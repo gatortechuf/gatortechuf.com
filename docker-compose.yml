@@ -9,6 +9,11 @@ services:
       - POSTGRES_DB=gatortech
       - POSTGRES_USER=gatortech
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  cache:
+    image: memcached
+    command: -m 64
+    ports:
+      - "11211:11211"
   web:
     build: src/
     environment:
@@ -22,3 +27,4 @@ services:
       - ~/nginx/static:/usr/src/app/static
     depends_on:
       - db
+      - cache
