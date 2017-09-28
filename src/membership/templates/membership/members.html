@@ -22,21 +22,42 @@
     <div class="container">
         <div class="row">
             {% for leader in leader_list %}
-                <div class="col-md-2 text-center">
-                    <a href="#{{ leader.id }}">
-                        {% if leader.leader_image %}
-                            <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin: auto;">
-                        {% else %}
-                            <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin: auto;">
-                        {% endif %}
-                        <h5>{{ leader.leader_name }}</h5>
-                        {% if not leader.leader_title|lower == "president" %}
-                            <p>VP of {{ leader.leader_title }}</p>
-                        {% else %}
-                            <p>{{ leader.leader_title }}</p>
-                        {% endif %}
-                    </a>
-                </div>
+                {% if leader.leader_title|lower == "president" %}
+                    <div class="col-md-2 text-center">
+                        <a href="#{{ leader.id }}">
+                            {% if leader.leader_image %}
+                                <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin: auto;">
+                            {% else %}
+                                <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin: auto;">
+                            {% endif %}
+                            <h5>{{ leader.leader_name }}</h5>
+                            {% if not leader.leader_title|lower == "president" %}
+                                <p>VP of {{ leader.leader_title }}</p>
+                            {% else %}
+                                <p>{{ leader.leader_title }}</p>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% for leader in leader_list %}
+                {% if not leader.leader_title|lower == "president" %}
+                    <div class="col-md-2 text-center">
+                        <a href="#{{ leader.id }}">
+                            {% if leader.leader_image %}
+                                <img src="/media/{{ leader.leader_image }}" class="img-responsive" style="margin: auto;">
+                            {% else %}
+                                <img src="{% static 'images/person-placeholder.jpg' %}" class="img-responsive" style="margin: auto;">
+                            {% endif %}
+                            <h5>{{ leader.leader_name }}</h5>
+                            {% if not leader.leader_title|lower == "president" %}
+                                <p>VP of {{ leader.leader_title }}</p>
+                            {% else %}
+                                <p>{{ leader.leader_title }}</p>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
