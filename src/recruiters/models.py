@@ -3,11 +3,11 @@ Recruiter model
 """
 from django.db import models
 
-class RecuiterHeader(models.Model):
+class RecruiterHeader(models.Model):
     """
     Header subtitle and email address
     """
-    subtitle = models.CharField('Subtitle', max_length=1024)
+    subtitle = models.TextField('Subtitle', max_length=1024)
     email_address = models.CharField('Email Button Address', max_length=512)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -14,14 +14,12 @@
                 <div class="block">
                     <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
                     <p>
-                        Recruiters, we want to give you the best experience with our members.
-                        <br>
-                        Check out how you can plug in below!
+                        {{ header.subtitle }}
                     </p>
 
                     <ul class="download-btn">
                         <li>
-                            <a href="mailto:nellywilson@ufl.edu?Subject=Recruitment%20with%20GatorTech" class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Email us!</a>
+                            <a href={{ "mailto:" + header.email + "?Subject=Recruitment%20with%20GatorTech" }} class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Email us!</a>
                         </li>
                     </ul>
 
@@ -40,37 +38,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                           <i class="fa fa-circle-o"></i>
+                {% for level in levels %}
+                    <div class="col-md-4 col-sm-12">
+                        <div class="block wow fadeInRight">
+                            <div class="icon">
+                            <i class="{{ level.icon }}"></i>
+                            </div>
+                            <h3>{{ level.title }} - ${{ level.price }}</h3><br>
+                            <span>
+                                {{ level.details }}
+                            </span>
                         </div>
-                        <h3>Supporter Level - $75</h3><br>
-                        <p>Logo on Website</p>
                     </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                           <i class="fa fa-circle"></i>
-                        </div>
-                        <h3>Partner Level - $150</h3><br>
-                        <p>Logo on Website</p>
-                        <p>Access to Members</p>
-                        <p>20 minute Company Presentation During Meeting</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                           <i class="fa fa-certificate"></i>
-                        </div>
-                            <h3>Sponsor Level - $500</h3><br>
-                            <p>Logo on Website</p>
-                            <p>Access to Members</p>
-                            <p>Lead a General Body Meeting</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
