@@ -9,8 +9,6 @@ class RecruiterView(generic.TemplateView):
     Recruiter Index View
     """
     template_name = 'recruiters/recruiters.html'
-    #model = RecruiterLogo
-    #context_object_name = 'logos'
 
     def get_context_data(self, **kwargs):
         context = super(RecruiterView, self).get_context_data(**kwargs)
