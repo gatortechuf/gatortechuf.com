@@ -2,7 +2,7 @@
 Recruiter Views
 """
 from django.views import generic
-from .models import RecruiterHeader, SponsorshipLevels, RecruiterLogo
+from .models import RecruiterHeader, SponsorshipLevel, RecruiterLogo
 
 class RecruiterView(generic.TemplateView):
     """
@@ -15,6 +15,6 @@ class RecruiterView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(RecruiterView, self).get_context_data(**kwargs)
         context['header'] = RecruiterHeader.objects.latest('updated_at')
-        context['levels'] = SponsorshipLevels.objects.order_by('-price')[:3]
+        context['levels'] = SponsorshipLevel.objects.order_by('price')[:3]
         context['logos'] = RecruiterLogo.objects.all()
         return context

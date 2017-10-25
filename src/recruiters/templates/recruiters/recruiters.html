@@ -14,12 +14,12 @@
                 <div class="block">
                     <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
                     <p>
-                        {{ header.subtitle }}
+                        {{ header.subtitle|linebreaks }}
                     </p>
 
                     <ul class="download-btn">
                         <li>
-                            <a href={{ "mailto:" + header.email + "?Subject=Recruitment%20with%20GatorTech" }} class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Email us!</a>
+                            <a href="mailto:{{header.email_address}}?Subject=Recruitment%20with%20GatorTech" class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Email us!</a>
                         </li>
                     </ul>
 
@@ -46,7 +46,7 @@
                             </div>
                             <h3>{{ level.title }} - ${{ level.price }}</h3><br>
                             <span>
-                                {{ level.details }}
+                                {{ level.details|linebreaks }}
                             </span>
                         </div>
                     </div>

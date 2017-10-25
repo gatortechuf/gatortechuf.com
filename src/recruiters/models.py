@@ -16,7 +16,7 @@ class RecruiterHeader(models.Model):
         return self.email_address
 
 
-class SponsorshipLevels(models.Model):
+class SponsorshipLevel(models.Model):
     """
     Different Sponsorship Packages
     """
