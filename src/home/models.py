@@ -21,6 +21,9 @@ class HomePageButton(models.Model):
     icon = models.CharField('Font Awesome Icon', max_length=128)
     button_text = models.CharField('Button Text', max_length=128)
     button_link = models.CharField('Button Link', max_length=1024)
+
+    def __str__(self):
+        return self.button_text
     
 class TextBlurb(models.Model):
     """
@@ -29,6 +32,9 @@ class TextBlurb(models.Model):
     icon = models.CharField('Font Awesome Icon', max_length=128)
     blurb_title = models.CharField('Blurb Title', max_length=128)
     blurb_text = models.CharField('Blurb Text', max_length=512)
+
+    def __str__(self):
+        return self.blurb_title
 
 class SemesterModule(models.Model):
     """

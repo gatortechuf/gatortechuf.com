@@ -19,7 +19,7 @@
                         <ul class="download-btn">
                             {% for button in buttons %}
                                 <li>
-                                    <a href="{{ button.button_link }}" class="btn btn-default btn-apple"><i class="{{ button.icon }}"></li>{{ button.button_text }}</a>
+                                    <a href="{{ button.button_link }}" class="btn btn-default btn-apple"><i class="{{ button.icon }}"></i>{{ button.button_text }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -39,8 +39,8 @@
                             <div class="icon">
                                 <i class="{{ blurb.icon }}"></i>
                             </div>
-                            <h3>{{ blurb.title }}</h3>
-                            <p>{{ blurb.text }}</p>
+                            <h3>{{ blurb.blurb_title }}</h3>
+                            <p>{{ blurb.blurb_text }}</p>
                         </div>
                     </div>
                 {% endfor %}
