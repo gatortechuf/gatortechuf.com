@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'gatortech.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'gatortech',
+        'NAME': os.path.join(BASE_DIR, 'gatortech.sqlite3'),
     }
 }
 
