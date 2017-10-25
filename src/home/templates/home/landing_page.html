@@ -14,28 +14,14 @@
                     <div class="block">
                         <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
                         <p>
-                            We meet every Tuesday in Heavener 150 from 6:30-8:00 PM to learn about tech.
-                            <br>
-                            Come join us!
+                            {{ header.subtitle|linebreaks }}
                         </p>
                         <ul class="download-btn">
-                            {% if latest_event %}
+                            {% for button in buttons %}
                                 <li>
-                                    <a href="{{ latest_event.event_facebook_url }}" class="btn btn-default btn-apple" target="_blank"><i class="fa fa-facebook"></i>RSVP to our latest event!</a>
+                                    <a href="{{ button.button_link }}" class="btn btn-default btn-apple"><i class="{{ button.icon }}"></i>{{ button.button_text }}</a>
                                 </li>
-                            {% endif %}
-                                <li>
-                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdptv4JsEsyuMxxngayZaTry-TFBzJ36WZBmGjd23KJFNv5VQ/viewform" class="btn btn-default btn-apple"><i class="fa fa-paper-plane"></i>Students, connect with us!</a>
-                                </li>
-                                <li>
-                                    <a href="mailto:nellywilson@ufl.edu?Subject=Recruitment%20with%20GatorTech" class="btn btn-default btn-apple"><i class="fa fa-pencil"></i>Recruiters, email us!</a>
-                                </li>
-                                <li>
-                                <a href="https://www.facebook.com/gatortechuf" class="btn btn-default btn-apple"><i class="fa fa-facebook"></i>Stay updated on our Facebook page!</a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/GatorTechUF" class="btn btn-default btn-apple"><i class="fa fa-twitter"></i>Find us on Twitter!</a>
-                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -47,42 +33,17 @@
     <div class="container">
         <div class="service-wrapper">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                           <i class="fa fa-users"></i>
+                {% for blurb in blurbs %}
+                    <div class="col-md-3 col-sm-6">
+                        <div class="block wow fadeInRight">
+                            <div class="icon">
+                                <i class="{{ blurb.icon }}"></i>
+                            </div>
+                            <h3>{{ blurb.blurb_title }}</h3>
+                            <p>{{ blurb.blurb_text }}</p>
                         </div>
-                        <h3>Learn Collaboratively</h3>
-                        <p>Learning about technology can be scary on your own. Having friends interested in the same space as you can make it a little easier.</p>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                            <i class="fa  fa-paper-plane"></i>
-                        </div>
-                        <h3>Explore Opportunities</h3>
-                        <p>Hackathon? Check. Info sessions? Check. Teach Kids? Check. We find opportunities in tech so you don't have to.</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                            <i class="fa  fa-file-text"></i>
-                        </div>
-                        <h3>Work On Projects</h3>
-                        <p>Want to learn while adding to your skill set? Our members are constantly working on projects and we even host workshops for you to learn by creating.</p>
-                    </div>
-                </div>
-                 <div class="col-md-3 col-sm-6">
-                    <div class="block wow fadeInRight">
-                        <div class="icon">
-                            <i class="fa  fa-laptop"></i>
-                        </div>
-                        <h3>Meet Recruiters</h3>
-                        <p>We’re all looking for jobs. We bring recruiters to you with relevant content and industry experience so you can learn, ask questions, and network.</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
