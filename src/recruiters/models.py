@@ -3,6 +3,31 @@ Recruiter model
 """
 from django.db import models
 
+class RecruiterHeader(models.Model):
+    """
+    Header subtitle and email address
+    """
+    subtitle = models.TextField('Subtitle', max_length=1024)
+    email_address = models.CharField('Email Button Address', max_length=512)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.email_address
+
+
+class SponsorshipLevel(models.Model):
+    """
+    Different Sponsorship Packages
+    """
+    icon = models.CharField('Font Awesome Icon', max_length=128)
+    title = models.CharField('Title', max_length=128)
+    price = models.IntegerField('Price')
+    details = models.TextField('Details', max_length=2048)
+
+    def __str__(self):
+        return self.title
+
 class RecruiterLogo(models.Model):
     """
     Recruiter logos for sponsoring companies
