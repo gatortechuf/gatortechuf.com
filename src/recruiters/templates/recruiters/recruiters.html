@@ -63,26 +63,31 @@
                     <h2>Our Sponsors</h2>
                 </div>
             </div>
-            {% for logo in logos %}
-                {% if forloop.first or forloop.counter0|divisibleby:2 %}
-                    <div class="row">
-                {% endif %}
-                {% if forloop.last and forloop.counter0|divisibleby:2 %}
-                    <div class="col-md-12">
-                {% else %}
-                    <div class="col-md-6">
-                {% endif %}
-                    <span class="text-center">
-                        <a href="{{ logo.url_name }}">
-                        <img src="/media/{{ logo.picture_name }}" class="img-responsive" style="margin: auto;">
-                        <h3>{{ logo.logo_name }}</h3>
-                        </a>
-                    </span>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div id="logoCarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            {% for logo in logos %}
+                                <li data-target="#logoCarousel" data-slide-to="{{ forloop.counter0 }}"{% if forloop.first %} class="active" {% endif %} style="border: 1px solid #000;"></li>
+                            {% endfor %}
+                        </ol>
+                        <div class="carousel-inner" style="margin: 0 auto;">
+                            {% for logo in logos %}
+                                {% if forloop.first %}
+                                    <div class="item active">
+                                {% else %}
+                                    <div class="item">
+                                {% endif %}
+                                        <img src="/media/{{ logo.picture_name }}" class="center-block">
+                                        <div class="carousel-caption">
+                                            <h3 style="color: black;">{{ logo.logo_name }}</h3>
+                                        </div>
+                                    </div>
+                            {% endfor %}
+                        </div>
                     </div>
-                {% if forloop.last or forloop.counter|divisibleby:2 %}
-                    </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </section>
