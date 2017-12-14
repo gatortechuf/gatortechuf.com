@@ -39,7 +39,11 @@
             </div>
             <div class="row">
                 {% for level in levels %}
-                    <div class="col-md-4 col-sm-12">
+                    {% if forloop.first and forloop.last %}
+                        <div class="col-md-12">
+                    {% else %}
+                        <div class="col-md-4 col-sm-12">
+                    {% endif %}
                         <div class="block wow fadeInRight">
                             <div class="icon">
                             <i class="{{ level.icon }}"></i>
