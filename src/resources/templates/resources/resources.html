@@ -6,14 +6,58 @@
 {% endblock %}
 
 {% block content %}
+<section id="banner" class="wow fadeInUp img.flip hero-image" style="margin-bottom: 40px">
+    <div class="container">
+        <div class="row">
+            <center>
+                <div class="col-md-12 col-sm-12">
+                    <div class="block">
+                        <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
+                        <p>Resources</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</section>
 {% for resource in resources %}
 <section id="resource">
     <div class="container">
         <div class="row">
-            hi
+            {% if resource.resourceimage_set.all %}
+                <div class="col-md-2">
+                    <img src="/media/{{ resource.resourceimage_set.first.resource_image }}" class="img-responsive" style="margin-left: 0;">
+                </div>
+            {% endif %}
+            {% if resource.resourceimage_set.all %}
+            <div class="col-md-10">
+            {% else %}
+            <div class="col-md-12">
+            {% endif %}
+                <h3>{{ resource.resource_name }}</h3>
+                <p>{{ resource.resource_description }}</p>
+                {% if resource.resourcelink_set.all %}
+                    <h4>Links</h4>
+                    <ul>
+                        {% for link in resource.resourcelink_set.all %}
+                            <li><a href="{{ link.resource_link }}" target="_blank" rel="noopener noreferrer">{{ link.resource_link_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if resource.resourcefile_set.all %}
+                    <h4>Files</h4>
+                    <ul>
+                        {% for file in resource.resourcefile_set.all %}
+                            <li><a href="/media/{{ file.resource_file }}">{{ file.resource_file_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
         </div>
     </div>
 </section>
-<hr style="width: 70%;">
+{% if not forloop.last %}
+    <hr style="width: 70%;">
+{% endif %}
 {% endfor %}
 {% endblock %}
