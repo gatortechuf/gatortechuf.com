@@ -75,4 +75,7 @@ ENV/
 # IntelliJ
 .idea/
 
+# VS Code
+.vscode/
+
 .DS_STORE

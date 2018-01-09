@@ -6,123 +6,58 @@
 {% endblock %}
 
 {% block content %}
+<section id="banner" class="wow fadeInUp img.flip hero-image" style="margin-bottom: 40px">
+    <div class="container">
+        <div class="row">
+            <center>
+                <div class="col-md-12 col-sm-12">
+                    <div class="block">
+                        <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
+                        <p>Resources</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</section>
+{% for resource in resources %}
 <section id="resource">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6 wow fadeInRight">
-                <div class="block">
-                    <img class="img-responsive" src="{% static 'images/Desktop.png' %}" alt="">
+            {% if resource.resourceimage_set.all %}
+                <div class="col-md-2">
+                    <img src="/media/{{ resource.resourceimage_set.first.resource_image }}" class="img-responsive" style="margin-left: 0;">
                 </div>
-            </div>
-            <div class="col-md-6 col-sm-6 wow fadeInLeft">
-                <h2 align="right" class="title right-push">Learn</h2>
-                <p align="right" class="right-push">Here are some of our favorite learning sources...</p>
-                <a href="https://www.lynda.com/nmhpexp3" target="_blank">
-                    <img src="{% static 'images/icons/lynda-logo.jpeg' %}" alt="Lynda" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.youtube.com/channel/UCJbPGzawDH1njbqV-D5HqKw" target="_blank">
-                    <img src="{% static 'images/icons/thenewboston.jpg' %}" alt="The New Boston" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.udacity.com/" target="_blank">
-                    <img src="{% static 'images/icons/udacity.jpg' %}" alt="Udacity" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.edx.org/" target="_blank">
-                    <img src="{% static 'images/icons/edx.jpg' %}" alt="edX" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.udemy.com/" target="_blank">
-                    <img src="{% static 'images/icons/udemy.jpg' %}" alt="Udemy" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.coursera.org/" target="_blank">
-                    <img src="{% static 'images/icons/coursera.jpeg' %}" alt="Coursera" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.pluralsight.com/" target="_blank">
-                    <img src="{% static 'images/icons/pluralsight.png' %}" alt="Pluralsight" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.codeavengers.com/" target="_blank">
-                    <img src="{% static 'images/icons/code-avengers.jpg' %}" alt="Code Avengers" width="70" height="70" class="resource-icon">
-                </a>
+            {% endif %}
+            {% if resource.resourceimage_set.all %}
+            <div class="col-md-10">
+            {% else %}
+            <div class="col-md-12">
+            {% endif %}
+                <h3>{{ resource.resource_name }}</h3>
+                <p>{{ resource.resource_description }}</p>
+                {% if resource.resourcelink_set.all %}
+                    <h4>Links</h4>
+                    <ul>
+                        {% for link in resource.resourcelink_set.all %}
+                            <li><a href="{{ link.resource_link }}" target="_blank" rel="noopener noreferrer">{{ link.resource_link_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% if resource.resourcefile_set.all %}
+                    <h4>Files</h4>
+                    <ul>
+                        {% for file in resource.resourcefile_set.all %}
+                            <li><a href="/media/{{ file.resource_file }}">{{ file.resource_file_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
-<hr style="width: 70%;">
-<section id="resource">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 wow fadeInDown">
-                <div>
-                    <h2 class="left-push">Stay In The Loop</h2>
-                    <p class="left-push">Here are some of our favorite blogs...</p>
-                    <a href="https://medium.com/" target="_blank">
-                    <img src="{% static 'images/icons/medium-logo.png' %}" alt="Medium" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="https://www.reddit.com/r/Futurology/" target="_blank">
-                    <img src="{% static 'images/icons/reddit-logo.jpg' %}" alt="Reddit" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="https://news.ycombinator.com/" target="_blank">
-                    <img src="{% static 'images/icons/ycombinator-logo.png' %}" alt="Y Combinator" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="http://www.cio.com/" target="_blank">
-                    <img src="{% static 'images/icons/cio-logo.png' %}" alt="C|Net" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="http://www.bloomberg.com/technology" target="_blank">
-                    <img src="{% static 'images/icons/bloomberg-logo.png' %}" alt="Bloomberg Technology" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCnxvzhbwByrxS60PNmkphdA" target="_blank">
-                    <img src="{% static 'images/icons/twit-logo.png' %}" alt="Tech New Today" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="http://mashable.com/tech/?utm_cid=mash-prod-nav-ch" target="_blank">
-                    <img src="{% static 'images/icons/mashable.png' %}" alt="Mashable" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                    <a href="http://www.zdnet.com/" target="_blank">
-                    <img src="{% static 'images/icons/zdnet.png' %}" alt="ZDNet" width="70" height="70" border="0" class="resource-icon">
-                    </a>
-                </div>
-            </div>
-             <div class="col-md-6 col-sm-6 wow fadeInUp">
-                <img class="img-responsive" src="{% static 'images/meddesk.png' %}" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-<hr style="width: 70%;">
-<section id="resource">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 wow fadeInRight">
-                <div class="block">
-                    <img class="img-responsive" src="{% static 'images/w3desk.png' %}" alt="">
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 wow fadeInLeft">
-                <h2 class="title right-push" style="margin;" align="right">Practice</h2>
-                <p class="right-push" align="right">Here are some of our favorite places to play...</p>
-                <a href="https://www.freecodecamp.com/" target="_blank">
-                    <img src="{% static 'images/icons/freecodecamp-logo.png' %}" alt="Free Code Camp" width="70" height="70" class="resource-icon">
-                </a>
-                <a href="http://stackoverflow.com/com/" target="_blank">
-                    <img src="{% static 'images/icons/stack.jpg' %}" alt="Stack OverFlow" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://coderbyte.com/" target="_blank">
-                    <img src="{% static 'images/icons/coderbyte.jpg' %}" alt="CoderByte" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.codecademy.com/" target="_blank">
-                    <img src="{% static 'images/icons/codeacademy.png' %}" alt="Codecademy" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="http://www.w3schools.com/" target="_blank">
-                    <img src="{% static 'images/icons/w3.jpg' %}" alt="W3 Schools" width="70" height="70" class="resource-icon">
-                </a>
-                <a href="https://dash.generalassemb.ly/" target="_blank">
-                    <img src="{% static 'images/icons/dash.jpg' %}" alt="Dash" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="https://www.facebook.com/talentbuddy/about/?entry_point=page_nav_about_item&tab=page_info" target="_blank">
-                    <img src="{% static 'images/icons/talentbuddy.png' %}" alt="Talent Buddy" width="70" height="70" border="0" class="resource-icon">
-                </a>
-                <a href="http://www.codewars.com/" target="_blank">
-                    <img src="{% static 'images/icons/codewars.png' %}" alt="Code Wars" width="70" height="70" border="0" class="resource-icon">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+{% if not forloop.last %}
+    <hr style="width: 70%;">
+{% endif %}
+{% endfor %}
 {% endblock %}
