@@ -38,19 +38,15 @@
                 <p>{{ resource.resource_description }}</p>
                 {% if resource.resourcelink_set.all %}
                     <h4>Links</h4>
-                    <ul>
-                        {% for link in resource.resourcelink_set.all %}
-                            <li><a href="{{ link.resource_link }}" target="_blank" rel="noopener noreferrer">{{ link.resource_link_name }}</a></li>
-                        {% endfor %}
-                    </ul>
+                    {% for link in resource.resourcelink_set.all %}
+                        <a href="{{ link.resource_link }}" class="btn btn-default btn-apple" target="_blank" rel="noopener noreferrer"><i class="fa fa-link" aria-hidden="true"></i> {{ link.resource_link_name }}</a>
+                    {% endfor %}
                 {% endif %}
                 {% if resource.resourcefile_set.all %}
                     <h4>Files</h4>
-                    <ul>
                         {% for file in resource.resourcefile_set.all %}
-                            <li><a href="/media/{{ file.resource_file }}">{{ file.resource_file_name }}</a></li>
+                        <a href="/media/{{ file.resource_file }}" class="btn btn-default btn-apple"><i class="fa fa-file" aria-hidden="true"></i> {{ file.resource_file_name }}</a>
                         {% endfor %}
-                    </ul>
                 {% endif %}
             </div>
         </div>
