@@ -10,6 +10,7 @@ urlpatterns = [
     path('resources/', include('resources.urls')),
     path('recruiters/', include('recruiters.urls')),
     path('membership/', include('membership.urls')),
+    path('checkin/', include('attendance.urls')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \

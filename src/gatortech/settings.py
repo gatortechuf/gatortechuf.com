@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'resources.apps.ResourcesConfig',
     'recruiters.apps.RecruitersConfig',
     'membership.apps.MembershipConfig',
+    'attendance.apps.AttendanceConfig',
     'allauth',
     'allauth.account',
     'allauth.socialaccount'
