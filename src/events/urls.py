@@ -1,6 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
+app_name = 'events'
+
 urlpatterns = [
-    url(r'^$', views.EventsView.as_view(), name='event_index'),
+    path('', views.EventsView.as_view(), name='event_index'),
 ]

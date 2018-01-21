@@ -1,16 +1,15 @@
-from django.conf.urls import url, include
+from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-app_name = 'gatortech'
 
 urlpatterns = [
-    url(r'^', include('home.urls', namespace='home')),
-    url(r'^calendar/', include('events.urls', namespace='events')),
-    url(r'^resources/', include('resources.urls', namespace='resources')),
-    url(r'^recruiters/', include('recruiters.urls', namespace='recruiters')),
-    url(r'^membership/', include('membership.urls', namespace='membership')),
-    url(r'^admin/', admin.site.urls),
+    path('', include('home.urls')),
+    path('calendar/', include('events.urls')),
+    path('resources/', include('resources.urls')),
+    path('recruiters/', include('recruiters.urls')),
+    path('membership/', include('membership.urls')),
+    path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
