@@ -29,12 +29,14 @@ DEBUG = ast.literal_eval(os.getenv('DJANGO_DEBUG', False))
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
+SITE_ID = 2
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -43,7 +45,10 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
     'recruiters.apps.RecruitersConfig',
-    'membership.apps.MembershipConfig'
+    'membership.apps.MembershipConfig',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount'
 ]
 
 MIDDLEWARE = [
@@ -109,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 }
 
 
@@ -131,3 +137,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+LOGIN_REDIRECT_URL = '/'
