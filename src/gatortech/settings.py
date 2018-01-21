@@ -43,18 +43,15 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
     'recruiters.apps.RecruitersConfig',
-    'membership.apps.MembershipConfig',
-    'pagedown',
-    'markdown_deux'
+    'membership.apps.MembershipConfig'
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -134,15 +131,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# markdown settings
-# should you ever put an import here? probably not
-# the import messes up the secret key for some reason
-# will debug later
-from markdown_deux.conf import settings
-settings.MARKDOWN_DEUX_STYLES = {
-    'default': {
-        'extras': {
-            'html-classes': {'img': 'img-fluid'}
-        }
-    }
-}

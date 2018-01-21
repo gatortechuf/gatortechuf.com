@@ -1,6 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
 
+app_name = 'resources'
+
 urlpatterns = [
-    url(r'^$', views.ResourceView.as_view(), name='resource_index'),
+    path('', views.ResourceView.as_view(), name='resource_index'),
 ]
