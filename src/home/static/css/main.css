@@ -430,3 +430,7 @@ white-text {
     .text-md-center { text-align: center; }
     .text-md-justify { text-align: justify; }
 }
+
+.footer-link {
+  padding-right: 10px;
+}
