@@ -36,17 +36,15 @@
             {% endif %}
                 <h3>{{ resource.resource_name }}</h3>
                 <p>{{ resource.resource_description }}</p>
+                {% if resource.resourcefile_set.all %}
+                    {% for file in resource.resourcefile_set.all %}
+                        <a href="/media/{{ file.resource_file }}" class="btn btn-default btn-apple"><i class="fa fa-file" aria-hidden="true"></i> {{ file.resource_file_name }}</a>
+                    {% endfor %}
+                {% endif %}
                 {% if resource.resourcelink_set.all %}
-                    <h4>Links</h4>
                     {% for link in resource.resourcelink_set.all %}
                         <a href="{{ link.resource_link }}" class="btn btn-default btn-apple" target="_blank" rel="noopener noreferrer"><i class="fa fa-link" aria-hidden="true"></i> {{ link.resource_link_name }}</a>
                     {% endfor %}
-                {% endif %}
-                {% if resource.resourcefile_set.all %}
-                    <h4>Files</h4>
-                        {% for file in resource.resourcefile_set.all %}
-                        <a href="/media/{{ file.resource_file }}" class="btn btn-default btn-apple"><i class="fa fa-file" aria-hidden="true"></i> {{ file.resource_file_name }}</a>
-                        {% endfor %}
                 {% endif %}
             </div>
         </div>
