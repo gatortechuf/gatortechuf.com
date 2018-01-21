@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'resources.apps.ResourcesConfig',
     'recruiters.apps.RecruitersConfig',
-    'membership.apps.MembershipConfig',
-    'pagedown',
-    'markdown_deux'
+    'membership.apps.MembershipConfig'
 ]
 
 MIDDLEWARE_CLASSES = [

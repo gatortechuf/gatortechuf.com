@@ -18,7 +18,7 @@ class ResourceFile(models.Model):
     """
     Resource File Model
     """
-    resource_parent = models.ForeignKey(Resource)
+    resource_parent = models.ForeignKey(Resource, on_delete=models.CASCADE)
     resource_file_name = models.CharField(max_length=256)
     resource_file = models.FileField(max_length=1024, upload_to='resources')
 
@@ -29,7 +29,7 @@ class ResourceLink(models.Model):
     """
     Resource Link Model
     """
-    resource_parent = models.ForeignKey(Resource)
+    resource_parent = models.ForeignKey(Resource, on_delete=models.CASCADE)
     resource_link = models.CharField(max_length=1024)
     resource_link_name = models.CharField(max_length=256)
 
@@ -41,5 +41,5 @@ class ResourceImage(models.Model):
     """
     Resource Header Image
     """
-    resource_parent = models.ForeignKey(Resource)
+    resource_parent = models.ForeignKey(Resource, on_delete=models.CASCADE)
     resource_image = models.ImageField(upload_to='resource_images')
