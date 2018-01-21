@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Meeting Check In - GatorTech
+{% endblock %}
+
+{% block content %}
+<section id="banner" class="wow fadeInUp img.flip hero-image" style="margin-bottom: 40px">
+    <div class="container">
+        <div class="row">
+            <center>
+                <div class="col-md-12 col-sm-12">
+                    <div class="block">
+                        <center><img src="{% static 'images/gatortechlogo.png' %}" width="300px" height="115px" class="img-responsive"></center>
+                        <p>Meeting Check In</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</section>
+<section id="checkin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {% if message %}
+                    <p>{{ message }}</p>
+                {% endif %}
+                <a href="{% url 'attendance:attendance_checkin' %}"" class="btn btn-default btn-apple"><i class="fa fa-check"></i> Check In</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
